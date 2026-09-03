@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Skrót zasad ruchu drogowego dla kategorii B, zbudowany wyłącznie na oficjalnym katalogu pytań egzaminacyjnych 07/2026.">
+<meta name="description" content="Skrót zasad ruchu drogowego dla kategorii B, zbudowany na oficjalnym katalogu pytań egzaminacyjnych 07/2026, z zadaniem nr 1 z egzaminu praktycznego.">
 <style>
   html { color-scheme: light dark; }
   body { margin: 0; font-family: system-ui, sans-serif; }
@@ -280,6 +280,69 @@
 
   .box ul.rules li { font-size: 15px; }
 
+  /* what to say on the exam */
+  .say {
+    display: block;
+    background: var(--surface-2);
+    border-left: 3px solid var(--amber);
+    padding: 11px 14px;
+    margin-top: 8px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .say::before { content: "„"; }
+  .say::after { content: "”"; }
+
+  .task {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 14px 16px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .task .what { font-weight: 600; }
+  .task .where { font-size: 14px; color: var(--ink-2); }
+
+  ol.steps {
+    counter-reset: step;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 34px;
+    color: var(--ink-2);
+  }
+
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--surface);
+    background: var(--ink);
+    border-radius: 50%;
+  }
+
+  ol.steps li b { color: var(--ink); font-weight: 600; }
+
   /* glossary */
   dl.gloss {
     margin: 0;
@@ -368,7 +431,7 @@
   <header class="masthead">
     <div class="eyebrow">Katalog pytań egzaminacyjnych · lipiec 2026 · kategoria B</div>
     <h1>Ściąga<br>kat. B</h1>
-    <p class="lede">Wszystko, co pojawia się w oficjalnym katalogu pytań dla kategorii B — <strong>2299 pytań</strong> — zebrane w jedno miejsce i napisane prostym językiem. Na końcu słowniczek terminów, których egzamin używa bez tłumaczenia.</p>
+    <p class="lede">Wszystko, co pojawia się w oficjalnym katalogu pytań dla kategorii B — <strong>2299 pytań</strong> — zebrane w jedno miejsce i napisane prostym językiem. Do tego zadanie nr 1 z egzaminu praktycznego, z gotowymi zdaniami do powiedzenia, i słowniczek terminów, których egzamin używa bez tłumaczenia.</p>
   </header>
 
   <section>
@@ -574,6 +637,69 @@
           <li>Trójkąt na autostradzie stawiasz <span class="num">100 m</span> za pojazdem.</li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Zadanie nr 1 na placu <span class="tag">co powiedzieć egzaminatorowi</span></h2>
+    <p class="lede" style="max-width:none">Zanim ruszysz, sprawdzasz stan techniczny podstawowych elementów pojazdu. Komputer w ośrodku losuje <b>dwa</b> punkty: jeden z grupy „płyny i sygnał”, drugi z grupy „światła zewnętrzne”. Na to zadanie razem z przygotowaniem do jazdy masz <b>maksymalnie 5 minut</b>.</p>
+
+    <div class="note">
+      <b>Wystarczy wskazać, gdzie i przy użyciu jakich przyrządów</b> sprawdza się dany poziom. Nie musisz nic mierzyć ani dolewać — masz otworzyć maskę, pokazać właściwy zbiornik i powiedzieć, jak się to sprawdza.
+    </div>
+
+    <div class="split">
+      <div class="task">
+        <div class="what">Grupa 1 — losuje się jeden punkt</div>
+        <div class="where">poziom oleju w silniku · poziom płynu chłodzącego · poziom płynu hamulcowego · obecność płynu w zbiorniku spryskiwaczy · działanie sygnału dźwiękowego</div>
+      </div>
+      <div class="task">
+        <div class="what">Grupa 2 — losuje się jeden punkt</div>
+        <div class="where">światła pozycyjne · mijania · drogowe · stop · cofania · kierunkowskazy · awaryjne · przeciwmgłowe</div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Olej silnikowy</h3>
+      <span class="say">Poziom oleju sprawdzam bagnetem. Silnik musi być zimny albo wyłączony od kilku minut, samochód na równym podłożu. Wyciągam bagnet, wycieram go, wkładam ponownie, wyjmuję i sprawdzam, czy poziom jest między minimum a maksimum.</span>
+      <p style="margin-top:8px;color:var(--ink-2);font-size:15px">Pokazujesz <b>bagnet</b>, a nie korek wlewu oleju. To dwie różne rzeczy i egzaminator to wyłapie.</p>
+    </div>
+
+    <div>
+      <h3>Płyn chłodzący</h3>
+      <span class="say">To jest zbiornik wyrównawczy płynu chłodzącego. Poziom sprawdzam wzrokowo, przy zimnym silniku, powinien być między znakami min i max. Na gorącym silniku nie wolno odkręcać korka, bo płyn jest pod ciśnieniem.</span>
+      <p style="margin-top:8px;color:var(--ink-2);font-size:15px">Zdanie o gorącym silniku dodaj zawsze — egzaminatorzy właśnie na nie czekają.</p>
+    </div>
+
+    <div>
+      <h3>Płyn hamulcowy</h3>
+      <span class="say">To jest zbiornik płynu hamulcowego, przy przegrodzie, po stronie kierowcy. Poziom sprawdzam wzrokowo, między min a max. Spadający poziom może oznaczać zużyte klocki albo nieszczelność układu.</span>
+    </div>
+
+    <div>
+      <h3>Płyn do spryskiwaczy</h3>
+      <span class="say">To jest zbiornik spryskiwaczy, korek zwykle z symbolem szyby i strumienia wody. Sprawdzam wzrokowo obecność płynu, mogę też uruchomić spryskiwacz.</span>
+      <p style="margin-top:8px;color:var(--ink-2);font-size:15px">Tu liczy się sama <b>obecność</b> płynu, nie dokładny poziom.</p>
+    </div>
+
+    <div>
+      <h3>Sygnał dźwiękowy i światła</h3>
+      <span class="say">Sprawdzam działanie sygnału dźwiękowego.</span>
+      <span class="say">Włączam światła mijania. Proszę o potwierdzenie ich działania.</span>
+      <p style="margin-top:8px;color:var(--ink-2);font-size:15px">Przy światłach stop i cofania sam nie zobaczysz efektu — poproś egzaminatora o potwierdzenie. To normalna część zadania, nie błąd.</p>
+    </div>
+
+    <h3 style="margin-top:6px">Kolejność</h3>
+    <ol class="steps">
+      <li>Otwierasz maskę: dźwignia w kabinie po lewej pod kierownicą, potem <b>zaczep</b> pod samą maską. Poćwicz wcześniej na aucie egzaminacyjnym — zaczep w każdym modelu jest gdzie indziej.</li>
+      <li>Podpierasz maskę, jeśli nie ma siłowników.</li>
+      <li>Wskazujesz właściwy zbiornik albo bagnet i mówisz, jak sprawdzasz poziom.</li>
+      <li>Zamykasz maskę i upewniasz się, że <b>zatrzasnęła się</b>.</li>
+      <li>Wsiadasz i ustawiasz <b>fotel → lusterka → pasy</b>, w tej kolejności.</li>
+    </ol>
+
+    <div class="note warn">
+      <b>Najczęstszy błąd to pomylone zbiorniki.</b> Płyn hamulcowy — mały, przy przegrodzie po stronie kierowcy, często z symbolem koła w nawiasach. Płyn chłodzący — duży, półprzezroczysty, z wyraźnymi kreskami min i max. Spryskiwacze — korek z symbolem szyby i strumienia wody.
     </div>
   </section>
 
@@ -847,6 +973,7 @@
 
   <footer>
     <div>Źródło: <b>KATALOG dla kandydatów na kierowców, 07/2026</b> — oficjalna baza pytań Ministerstwa Infrastruktury. Uwzględniono wyłącznie pytania z kategorią B, łącznie 2299, w tym arkusz „W trakcie weryfikacji”.</div>
+    <div>Wyjątek: sekcja „Zadanie nr 1 na placu” opisuje przebieg egzaminu praktycznego, a nie pytania — pochodzi z listy zadań stosowanej przez ośrodki egzaminacyjne.</div>
     <div>Ściąga nie zastępuje bazy pytań. 2046 pytań kat. B ma film albo zdjęcie i sprawdza konkretną sytuację na drodze — te trzeba przeklikać.</div>
   </footer>
 
