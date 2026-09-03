@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Skrót zasad ruchu drogowego dla kategorii B, zbudowany wyłącznie na oficjalnym katalogu pytań egzaminacyjnych 07/2026.">
+<style>
+  html { color-scheme: light dark; }
+  body { margin: 0; font-family: system-ui, sans-serif; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>Ściąga kat. B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+  :root {
+    --ground: #F4F4F1;
+    --surface: #FFFFFF;
+    --surface-2: #ECECE7;
+    --ink: #191C21;
+    --ink-2: #4A515C;
+    --ink-3: #767E8B;
+    --line: #D9D9D2;
+    --line-strong: #B9BAB2;
+    --blue: #14508C;
+    --blue-soft: #E2EBF5;
+    --red: #B62A2E;
+    --red-soft: #F6E3E3;
+    --amber: #A96F0C;
+    --amber-soft: #F8ECD6;
+    --green: #2F6B3C;
+    --green-soft: #E2EFE4;
+    --shadow: 0 1px 2px rgba(25, 28, 33, .06);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #14161A;
+      --surface: #1C1F25;
+      --surface-2: #23272E;
+      --ink: #E9EAEC;
+      --ink-2: #B3B9C3;
+      --ink-3: #858C98;
+      --line: #2E333B;
+      --line-strong: #3E444E;
+      --blue: #7FB2E8;
+      --blue-soft: #1B2A3B;
+      --red: #E48A8C;
+      --red-soft: #33201F;
+      --amber: #E0AC5A;
+      --amber-soft: #302512;
+      --green: #85C193;
+      --green-soft: #1B2A1E;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #14161A;
+    --surface: #1C1F25;
+    --surface-2: #23272E;
+    --ink: #E9EAEC;
+    --ink-2: #B3B9C3;
+    --ink-3: #858C98;
+    --line: #2E333B;
+    --line-strong: #3E444E;
+    --blue: #7FB2E8;
+    --blue-soft: #1B2A3B;
+    --red: #E48A8C;
+    --red-soft: #33201F;
+    --amber: #E0AC5A;
+    --amber-soft: #302512;
+    --green: #85C193;
+    --green-soft: #1B2A1E;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+  }
+
+  header.masthead {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: 28px;
+    border-bottom: 3px solid var(--ink);
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  h1 {
+    font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+    font-weight: 700;
+    font-size: clamp(38px, 8vw, 60px);
+    line-height: .95;
+    letter-spacing: -.01em;
+    margin: 0;
+    text-wrap: balance;
+    text-transform: uppercase;
+  }
+
+  .lede {
+    color: var(--ink-2);
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  .lede strong { color: var(--ink); font-weight: 600; }
+
+  section { display: flex; flex-direction: column; gap: 18px; }
+
+  h2 {
+    font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.05;
+    letter-spacing: .005em;
+    text-transform: uppercase;
+    margin: 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line-strong);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  h2 .tag {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  h3 {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .01em;
+    margin: 0 0 8px;
+  }
+
+  p { margin: 0; }
+
+  ul.rules {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  ul.rules li {
+    position: relative;
+    padding-left: 20px;
+    color: var(--ink-2);
+  }
+
+  ul.rules li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .62em;
+    width: 8px;
+    height: 2px;
+    background: var(--line-strong);
+  }
+
+  ul.rules li b { color: var(--ink); font-weight: 600; }
+
+  .num {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* limit table */
+  .scroller { overflow-x: auto; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    min-width: 460px;
+  }
+
+  caption {
+    text-align: left;
+    font-size: 13px;
+    color: var(--ink-3);
+    padding-bottom: 8px;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 9px 12px 9px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  thead th {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  td.v {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    white-space: nowrap;
+    width: 1%;
+    padding-right: 0;
+    text-align: right;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+
+  /* callouts */
+  .note {
+    border-left: 3px solid var(--blue);
+    background: var(--blue-soft);
+    padding: 12px 14px;
+    font-size: 15px;
+    color: var(--ink-2);
+  }
+
+  .note.warn { border-left-color: var(--red); background: var(--red-soft); }
+  .note.tip { border-left-color: var(--green); background: var(--green-soft); }
+  .note b { color: var(--ink); font-weight: 600; }
+
+  /* two-column blocks */
+  .split {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+  }
+
+  .box {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 14px 16px;
+    box-shadow: var(--shadow);
+  }
+
+  .box ul.rules li { font-size: 15px; }
+
+  /* glossary */
+  dl.gloss {
+    margin: 0;
+    display: grid;
+    grid-template-columns: minmax(150px, 34%) 1fr;
+    gap: 0;
+    font-size: 15px;
+  }
+
+  dl.gloss dt {
+    font-weight: 600;
+    padding: 9px 14px 9px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  dl.gloss dt span {
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--ink-3);
+    font-style: italic;
+  }
+
+  dl.gloss dd {
+    margin: 0;
+    padding: 9px 0;
+    color: var(--ink-2);
+    border-bottom: 1px solid var(--line);
+  }
+
+  @media (max-width: 560px) {
+    dl.gloss { grid-template-columns: 1fr; }
+    dl.gloss dt { border-bottom: none; padding-bottom: 0; }
+    dl.gloss dd { padding-top: 4px; }
+  }
+
+  .lamps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 12px;
+  }
+
+  .lamp {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--line-strong);
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .lamp.red { border-top-color: var(--red); }
+  .lamp.amber { border-top-color: var(--amber); }
+  .lamp.blue { border-top-color: var(--blue); }
+  .lamp.green { border-top-color: var(--green); }
+
+  .lamp .who {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  .lamp .what { font-weight: 600; }
+  .lamp .do { font-size: 14px; color: var(--ink-2); }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    font-size: 13px;
+    color: var(--ink-3);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  a { color: var(--blue); }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">Katalog pytań egzaminacyjnych · lipiec 2026 · kategoria B</div>
+    <h1>Ściąga<br>kat. B</h1>
+    <p class="lede">Wszystko, co pojawia się w oficjalnym katalogu pytań dla kategorii B — <strong>2299 pytań</strong> — zebrane w jedno miejsce i napisane prostym językiem. Na końcu słowniczek terminów, których egzamin używa bez tłumaczenia.</p>
+  </header>
+
+  <section>
+    <h2>Prędkość <span class="tag">limity dopuszczalne</span></h2>
+    <div class="scroller">
+      <table>
+        <caption>Samochód osobowy, dopuszczalna masa całkowita do 3,5 t.</caption>
+        <thead>
+          <tr><th>Droga</th><th style="text-align:right">Bez przyczepy</th><th style="text-align:right">Z przyczepą</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Strefa zamieszkania</td><td class="v">20</td><td class="v">20</td></tr>
+          <tr><td>Obszar zabudowany</td><td class="v">50</td><td class="v">50</td></tr>
+          <tr><td>Poza obszarem zabudowanym, jedna jezdnia</td><td class="v">90</td><td class="v">70</td></tr>
+          <tr><td>Droga dwujezdniowa, min. 2 pasy w każdą stronę</td><td class="v">100</td><td class="v">80</td></tr>
+          <tr><td>Droga ekspresowa jednojezdniowa</td><td class="v">100</td><td class="v">80</td></tr>
+          <tr><td>Droga ekspresowa dwujezdniowa</td><td class="v">120</td><td class="v">80</td></tr>
+          <tr><td>Autostrada</td><td class="v">140</td><td class="v">80</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="rules">
+      <li><b>50 km/h w mieście obowiązuje przez całą dobę</b> — nie ma już nocnej „ulgi” do 60 km/h.</li>
+      <li>W strefie zamieszkania <span class="num">20 km/h</span>. Pytanie lubi podpowiadać 25 albo 30 — to zawsze błąd.</li>
+      <li>Holowanie innego pojazdu: <span class="num">30 km/h</span> w obszarze zabudowanym, <span class="num">60 km/h</span> poza nim.</li>
+      <li>Pojazd z urządzeniem wystającym do przodu ponad <span class="num">1,5 m</span> od siedzenia kierowcy: <span class="num">60 km/h</span> poza obszarem zabudowanym.</li>
+      <li>Hulajnoga elektryczna na jezdni: <span class="num">20 km/h</span>. Czterokołowiec w mieście: <span class="num">50 km/h</span>.</li>
+      <li>Na autostradzie nie ma minimum wyrażonego liczbą — masz jechać płynnie, nie utrudniając ruchu i nie przekraczając limitu.</li>
+    </ul>
+
+    <div class="note">
+      <b>Prędkość bezpieczna to nie to samo co dopuszczalna.</b> Bezpieczna = taka, przy której panujesz nad pojazdem. Zależy od nawierzchni, pogody, widoczności, natężenia ruchu, rzeźby terenu, stanu i ładunku pojazdu oraz Twojego samopoczucia. Jazda „na tablicę” przy gołoledzi to nadal wykroczenie. Odpowiedź „tak, ale tylko w obszarze zabudowanym” przy takich pytaniach jest zawsze zła.
+    </div>
+
+    <div class="split">
+      <div class="box">
+        <h3>Fizyka, o którą pytają wprost</h3>
+        <ul class="rules">
+          <li>Dwa razy większa prędkość = <b>cztery razy dłuższa droga hamowania</b>.</li>
+          <li>Przy <span class="num">100 km/h</span> pokonujesz około <span class="num">28 m</span> na sekundę.</li>
+          <li>Im szybciej jedziesz, tym <b>węższe pole widzenia</b> i mniej czasu na reakcję.</li>
+          <li>Na łuku drogi wzrost prędkości gwałtownie zwiększa siłę odśrodkową.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Co wydłuża drogę zatrzymania</h3>
+        <ul class="rules">
+          <li>Czas reakcji kierującego — <b>nie masa pasażerów</b> i nie ilość paliwa.</li>
+          <li>Prędkość, stan nawierzchni, stan hamulców i opon.</li>
+          <li>Mokra jezdnia, a najbardziej oblodzona. Także mokre liście.</li>
+          <li>Zużyty bieżnik: mniejsze tarcie, dłuższa droga hamowania.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Odstępy <span class="tag">metry, które trzeba znać</span></h2>
+    <div class="scroller">
+      <table>
+        <thead>
+          <tr><th>Sytuacja</th><th style="text-align:right">Odstęp</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Autostrada i droga ekspresowa, ten sam pas</td><td class="v">połowa prędkości w metrach</td></tr>
+          <tr><td>… przy 140 km/h</td><td class="v">70 m</td></tr>
+          <tr><td>… przy 120 km/h</td><td class="v">60 m</td></tr>
+          <tr><td>Tunel poza obszarem zabudowanym dłuższy niż 500 m</td><td class="v">50 m</td></tr>
+          <tr><td>Postój w korku w tunelu</td><td class="v">5 m</td></tr>
+          <tr><td>Wyprzedzanie roweru, motoroweru, motocykla, hulajnogi</td><td class="v">min. 1 m</td></tr>
+          <tr><td>Wyprzedzanie pieszego i kolumny pieszych</td><td class="v">min. 1 m</td></tr>
+          <tr><td>Wymijanie i omijanie</td><td class="v">bezpieczny</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="rules">
+      <li>Reguła „połowa prędkości” działa <b>tylko na autostradzie i drodze ekspresowej</b> i <b>nie obowiązuje w trakcie wyprzedzania</b>.</li>
+      <li>Przy wymijaniu i omijaniu żadna liczba nie jest podana — odstęp zależy od szerokości jezdni i warunków. Jeśli w odpowiedzi pojawia się konkretny metr przy wymijaniu, to pułapka.</li>
+      <li>Wymijanie hulajnogi elektrycznej: <b>metr nie obowiązuje</b>, obowiązuje przy wyprzedzaniu.</li>
+      <li>Stojąc przed skrzyżowaniem na czerwonym trzymasz po prostu bezpieczny odstęp, bez konkretnej liczby.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Pieszy zawsze wygrywa <span class="tag">i osoby z niepełnosprawnością</span></h2>
+    <ul class="rules">
+      <li>Pieszemu <b>wchodzącemu</b> na przejście i będącemu na przejściu ustępujesz pierwszeństwa. To samo dotyczy osoby pchającej urządzenie wspomagające ruch.</li>
+      <li>Osoba z <b>białą laską</b> albo z widocznie ograniczoną sprawnością ruchową przechodząca przez jezdnię <b>nawet poza przejściem</b> — masz obowiązek się zatrzymać i ją przepuścić.</li>
+      <li>Nie zakładaj, że osoba z niepełnosprawnością nie stosuje się do przepisów. Zakładaj natomiast, że możesz musieć stanąć.</li>
+      <li><b>Przejście sugerowane</b> (niewyznaczone znakami) nie daje pieszemu pierwszeństwa, ale włącza zasadę ograniczonego zaufania.</li>
+      <li>Przystanek bez wysepki, pasażerowie wychodzą wprost na jezdnię — zatrzymujesz się tak, by mogli swobodnie dojść do autobusu lub tramwaju.</li>
+      <li>Omijając i wymijając pieszego w razie potrzeby zjeżdżasz w prawo, zwalniasz albo się zatrzymujesz.</li>
+      <li>Wyprzedzanie na przejściu dla pieszych: <b>zabronione</b> na przejściu o ruchu niekierowanym, <b>dozwolone</b> tam, gdzie ruchem kieruje sygnalizacja lub policjant.</li>
+      <li>Zbliżasz się do kolumny pieszych — nie używaj świateł drogowych, jeśli możesz ich oślepić.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Światła <span class="tag">nazwy i kiedy które</span></h2>
+    <div class="split">
+      <div class="box">
+        <h3>Kiedy włączasz</h3>
+        <ul class="rules">
+          <li><b>Mijania</b> — oświetlają drogę <b>asymetrycznie</b>, żeby nie oślepiać. Dobrze ustawione świecą na ok. 40 m.</li>
+          <li><b>Przeciwmgłowe przednie</b> — podczas mgły, ale też opadów śniegu i deszczu.</li>
+          <li><b>Przeciwmgłowe tylne</b> — tylko gdy widoczność spada <b>poniżej 50 m</b>. Wyłączasz, gdy przekroczy 50 m.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Kiedy wyłączasz drogowe</h3>
+        <ul class="rules">
+          <li>Gdy z przeciwka nadjeżdża inny pojazd.</li>
+          <li>Gdy zbliżasz się do pojazdu jadącego przed Tobą i możesz oślepić jego kierowcę przez lusterka.</li>
+          <li>Gdy mijasz kolumnę pieszych.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note warn">
+      <b>Mgła poza obszarem zabudowanym:</b> wyprzedzając lub omijając pieszego dajesz <b>krótkotrwałe sygnały dźwiękowe</b>, nie świetlne. To jedno z częściej mylonych pytań — świateł drogowych we mgle nie włączasz, bo odbijają się od kropel i pogarszają widoczność.
+    </div>
+    <ul class="rules">
+      <li><b>Pozycyjne</b> nie oświetlają drogi — pokazują tylko, gdzie stoi pojazd i jak jest szeroki.</li>
+      <li><b>Cofania</b> oświetlają drogę z tyłu i sygnalizują innym, że cofasz.</li>
+      <li>Źle ustawione reflektory mijania oślepiają innych i jednocześnie pogarszają widoczność Tobie.</li>
+      <li>Nie wolno wstawiać lampy ksenonowej w reflektor przeznaczony na żarówkę halogenową, nawet jeśli trzonek pasuje.</li>
+      <li>Niedziałające światła <b>stop</b> lub przepalony kierunkowskaz wykluczają pojazd z ruchu. Niedziałająca klimatyzacja czy czujniki parkowania — nie.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Lampki kontrolne <span class="tag">kolor mówi, co robić</span></h2>
+    <div class="lamps">
+      <div class="lamp red">
+        <div class="who">czerwona · olej</div>
+        <div class="what">Ciśnienie oleju silnikowego</div>
+        <div class="do">Zatrzymaj się i <b>wyłącz silnik</b>. Jazda dalej to poważne uszkodzenie silnika.</div>
+      </div>
+      <div class="lamp red">
+        <div class="who">czerwona · hamulce</div>
+        <div class="what">Układ hamulcowy</div>
+        <div class="do">Zatrzymaj się i sprawdź poziom płynu hamulcowego.</div>
+      </div>
+      <div class="lamp red">
+        <div class="who">czerwona · chłodzenie</div>
+        <div class="what">Temperatura płynu chłodniczego</div>
+        <div class="do">Płyn jest za gorący. Zatrzymaj się, nie dolewaj do gorącego silnika.</div>
+      </div>
+      <div class="lamp red">
+        <div class="who">czerwona · akumulator</div>
+        <div class="what">Ładowanie akumulatora</div>
+        <div class="do">Ładowanie działa nieprawidłowo — to nie znaczy, że akumulator jest rozładowany.</div>
+      </div>
+      <div class="lamp blue">
+        <div class="who">niebieska</div>
+        <div class="what">Światła drogowe</div>
+        <div class="do">Jedyna niebieska kontrolka na desce. Świeci — masz włączone „długie”.</div>
+      </div>
+      <div class="lamp green">
+        <div class="who">zielona · miganie</div>
+        <div class="what">Kierunkowskazy</div>
+        <div class="do">Miga wyraźnie szybciej niż zwykle — przepalona żarówka kierunkowskazu.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Płyny i obsługa <span class="tag">co, kiedy, ile</span></h2>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Element</th><th>Zasada z katalogu</th></tr></thead>
+        <tbody>
+          <tr><td>Olej silnikowy</td><td>Poziom sprawdzasz <b>przed uruchomieniem zimnego silnika</b> albo co najmniej kilka minut po jego wyłączeniu.</td></tr>
+          <tr><td>Płyn hamulcowy</td><td>Sprawdzasz, gdy zapali się czerwona kontrolka hamulców.</td></tr>
+          <tr><td>Płyn chłodniczy</td><td>Za wysoka temperatura = czerwona kontrolka układu chłodzenia.</td></tr>
+          <tr><td>Ciśnienie w ogumieniu</td><td>Sprawdzasz <b>bezpośrednio przed podróżą</b>, na zimnych oponach.</td></tr>
+          <tr><td>Bieżnik</td><td>Minimum <span class="num">1,6 mm</span>, gdy opona nie ma wskaźnika zużycia.</td></tr>
+          <tr><td>Opona do wymiany</td><td>Gdy na boku widać odkształcenia lub wybrzuszenia.</td></tr>
+          <tr><td>Badanie techniczne</td><td>W terminie wpisanym w dowodzie rejestracyjnym, w podstawowej lub okręgowej <b>SKP</b> — nie w warsztacie.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="split">
+      <div class="box">
+        <h3>Objawy usterki, o które pytają</h3>
+        <ul class="rules">
+          <li>Plamy płynów na miejscu postoju.</li>
+          <li>Czarne lub niebieskie gęste spaliny. Bezbarwne są w porządku.</li>
+          <li>Miękki pedał hamulca lub brak oporu — pęknięty przewód hamulcowy.</li>
+          <li>Luz na kierownicy — zużyte końcówki drążków kierowniczych.</li>
+          <li>Auto ściąga w bok — zła zbieżność kół. Ona też zjada opony na przedniej osi.</li>
+          <li>Nierówne zużycie bieżnika — niewyważone koła.</li>
+          <li>Głośny wydech — nieszczelny układ wydechowy.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Wyposażenie obowiązkowe</h3>
+        <ul class="rules">
+          <li><b>Gaśnica</b> — zamocowana w zasięgu ręki, na przykład pod fotelem. Nie luzem na półce.</li>
+          <li><b>Ostrzegawczy trójkąt odblaskowy</b> — ostrzega o unieruchomionym pojeździe.</li>
+          <li><b>Apteczka nie jest obowiązkowa</b>, choć warto ją mieć. To ulubione pytanie-pułapka.</li>
+          <li>Koło zapasowe, podnośnik, kamizelka i zapasowe żarówki też <b>nie</b> są obowiązkowe.</li>
+          <li>Trójkąt na autostradzie stawiasz <span class="num">100 m</span> za pojazdem.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pasy, foteliki, pasażerowie <span class="tag">przewóz osób</span></h2>
+    <ul class="rules">
+      <li>Pasy zapinają <b>wszyscy</b>, na przednich i tylnych siedzeniach, na <b>wszystkich drogach</b>.</li>
+      <li>Z pasów zwolniona jest osoba przewożona <b>na wózku inwalidzkim</b>. Kobieta w ciąży ani osoba, której pasy przeszkadzają — nie.</li>
+      <li>Skręcony pas nie zadziała prawidłowo. Przetarcia i naderwania taśmy = wymiana pasów na nowe.</li>
+      <li>Zagłówek ustawiasz tak, by <b>jego górna krawędź była na wysokości czubka głowy</b> — chroni kręgi szyjne.</li>
+      <li>Dziecko poniżej <span class="num">150 cm</span> wozisz w foteliku lub innym urządzeniu przytrzymującym, zamontowanym <b>zgodnie z zaleceniami producenta</b>.</li>
+      <li>Fotelik tyłem do kierunku jazdy z przodu — tylko gdy <b>poduszka powietrzna pasażera jest wyłączona</b>. Przy aktywnej poduszce wyłącznie przodem do kierunku jazdy.</li>
+      <li>Na tylnym siedzeniu dziecko od <span class="num">135 cm</span> może jechać na samych pasach, jeśli wzrost i masa uniemożliwiają fotelik.</li>
+      <li>Trzecie dziecko na tylnej kanapie może jechać na samych pasach, jeśli ma <b>ukończone 3 lata</b>, a dwoje pozostałych siedzi w fotelikach i trzeciego nie da się zamontować.</li>
+      <li>Zaświadczenie lekarskie o przeciwwskazaniu zwalnia z fotelika.</li>
+      <li><b>Nigdy na kolanach</b> — ani niemowlę, ani przedszkolak.</li>
+      <li>Liczba osób = liczba miejsc z <b>dowodu rejestracyjnego</b>, bez żadnych bonusów. Kategoria B pozwala wieźć maksymalnie <span class="num">9</span> osób razem z kierowcą.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Ładunek i przyczepa <span class="tag">wymiary i masy</span></h2>
+    <ul class="rules">
+      <li>Ładunek zabezpieczasz przed przemieszczeniem, nie może naruszać stateczności pojazdu, zasłaniać świateł, tablic rejestracyjnych ani ograniczać widoczności drogi.</li>
+      <li>Ładunek sypki wozisz w <b>szczelnej skrzyni ładunkowej</b>.</li>
+      <li>Do tyłu ładunek może wystawać maksymalnie <span class="num">2 m</span> i musi być oznaczony <b>czerwoną chorągiewką</b>.</li>
+      <li>Rzeczywista masa przyczepy nie może przekroczyć rzeczywistej masy całkowitej samochodu.</li>
+      <li>Zespół: samochód osobowy + przyczepa kempingowa — maksymalnie <span class="num">18,75 m</span> długości.</li>
+      <li>Bagaż w bagażniku układasz najciężej i najniżej, w centralnej części.</li>
+      <li>Rowery wozisz na bagażniku dachowym albo z tyłu, ale bez zasłaniania tablicy i świateł.</li>
+      <li>Kategoria B: zespół samochód osobowy + przyczepa o łącznej dmc <b>do 3,5 t</b>, a także auto ciężarowe do 2,5 t z przyczepą lekką.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Manewry i technika <span class="tag">jak jechać</span></h2>
+    <div class="split">
+      <div class="box">
+        <h3>Przed ruszeniem, w tej kolejności</h3>
+        <ul class="rules">
+          <li>Fotel → lusterka → pasy. Ta kolejność bywa osobnym pytaniem.</li>
+          <li>Ręce lekko ugięte w łokciach, plecy przy oparciu.</li>
+          <li>Lusterko wewnętrzne: cała tylna szyba i droga za autem.</li>
+          <li>Lusterka zewnętrzne: fragment boku auta plus przestrzeń za nim.</li>
+          <li>Zimą odśnieżasz <b>wszystkie szyby, dach, maskę i lusterka</b>, nie samą przednią szybę.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Hamowanie</h3>
+        <ul class="rules">
+          <li>Z <b>ABS</b>: mocno i szybko wciśnij pedał i <b>nie puszczaj</b>, nawet gdy pedał pulsuje pod stopą.</li>
+          <li>Bez ABS lub przy jego awarii na śliskiej drodze: hamowanie <b>pulsacyjne</b>.</li>
+          <li>Sprzęgło wciskasz dopiero, gdy obroty spadną do minimum dla danego biegu — nie przed hamulcem.</li>
+          <li>Zbyt mocne hamowanie bez ABS = zablokowane koła i utrata sterowności.</li>
+        </ul>
+      </div>
+    </div>
+    <ul class="rules">
+      <li><b>ABS</b> zapobiega blokowaniu kół i pozwala omijać przeszkodę w trakcie hamowania. Nie skraca drogi hamowania w każdych warunkach.</li>
+      <li><b>ASR</b> zapobiega poślizgowi kół napędowych <b>przy ruszaniu i przyspieszaniu</b>, zwłaszcza na mokrej i śliskiej nawierzchni.</li>
+      <li><b>ESP</b> stabilizuje tor jazdy <b>na łuku i na kolejnych zakrętach</b>.</li>
+      <li>Poduszki powietrzne zmniejszają obrażenia, ale nie dają pełnej ochrony i nie chronią samochodu.</li>
+      <li>Ruszasz na najniższym biegu. Ruszając pod górę zbyt wcześnie puszczony hamulec ręczny = stoczenie się auta.</li>
+      <li>Zakręt w lewo zaczynasz przy prawej krawędzi jezdni. Przy dużej prędkości pozycję zaczynasz bliżej linii rozdzielającej pasy, ale zawsze na swojej połowie.</li>
+      <li>Jazda ekonomiczna: hamowanie silnikiem i unikanie gwałtownych przyspieszeń, a nie ciągła zmiana biegów.</li>
+      <li>Wracasz na prawy pas po wyprzedzaniu dopiero wtedy, gdy nie zmusisz wyprzedzonego do hamowania ani do zmiany toru jazdy.</li>
+      <li>Z autostrady hamujesz dopiero <b>po wjechaniu na pas wyłączenia</b>, nie na pasie ruchu.</li>
+      <li>Cofając obserwujesz całe otoczenie pojazdu, nie tylko lusterka.</li>
+      <li>Ugrzęźnięcie w śniegu: kilkakrotnie do przodu i do tyłu, bez wysokich obrotów.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Trudne warunki <span class="tag">deszcz, mgła, lód</span></h2>
+    <ul class="rules">
+      <li>Najbardziej śliska jest <b>początkowa faza deszczu</b> — woda podnosi brud i olej z asfaltu.</li>
+      <li><b>Aquaplaning</b>: przy dużej prędkości opona przestaje odprowadzać wodę i traci kontakt z jezdnią. Zużyty bieżnik zwiększa ryzyko.</li>
+      <li>Wjazd w kałużę albo koleinę z wodą: <b>płynnie zwolnij</b>. Nie przyspieszaj i nie hamuj gwałtownie.</li>
+      <li>Most i wiadukt oszraniają się i pokrywają gołoledzią wcześniej niż reszta drogi — nawet gdy indziej jest sucho.</li>
+      <li>Na lodzie w poślizg wprowadza gwałtowne hamowanie, gwałtowne przyspieszenie i szarpnięcie kierownicą. Hamowanie silnikiem i stała prędkość są bezpieczne.</li>
+      <li>Opony zimowe tak. <b>Łańcuchy tylko na drodze pokrytej śniegiem</b> — nie „od grudnia do lutego” i nie „poniżej zera”.</li>
+      <li>We mgle zwiększasz odstęp od poprzedzającego pojazdu, a toru jazdy pilnujesz po <b>znakach poziomych</b>, nie po nawigacji.</li>
+      <li>W nocy przy wymijaniu patrzysz w prawo od świateł nadjeżdżającego auta i tam szukasz przeszkody.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Przejazd kolejowy <span class="tag">i zakazy</span></h2>
+    <ul class="rules">
+      <li>Podniesione zapory nie zwalniają z obowiązku <b>upewnienia się</b>, czy nie nadjeżdża pociąg.</li>
+      <li>Jeśli półzapory <b>zaczęły się opuszczać</b> — nie wjeżdżasz, nawet „ostrożnie”.</li>
+      <li>Utknąłeś na przejeździe: <b>najpierw usuwasz pojazd z torów</b>, a dopiero gdy się nie da, ostrzegasz maszynistę. Zapory da się wyłamać — są tak zaprojektowane.</li>
+      <li>Przy intensywnych opadach dodatkowo zwalniasz przed przejazdem.</li>
+    </ul>
+    <div class="note warn">
+      <b>Zabronione zawsze:</b> telefon trzymany w ręku (również z włączonym trybem głośnomówiącym), oddalenie się od pojazdu z pracującym silnikiem, ciągnięcie osoby na sankach lub na urządzeniu wspomagającym ruch, holowanie na autostradzie, holowanie na sztywno pojazdu z niesprawnym układem kierowniczym, zasłonięta tablica rejestracyjna, naklejka innego państwa niż kraj rejestracji, nadmierny hałas i dymienie. Nawigacja i radio są dozwolone.
+    </div>
+  </section>
+
+  <section>
+    <h2>Wypadek i pierwsza pomoc <span class="tag">obowiązki</span></h2>
+    <div class="split">
+      <div class="box">
+        <h3>Są ranni lub zabici</h3>
+        <ul class="rules">
+          <li>Zatrzymujesz się, udzielasz pomocy, dzwonisz na <span class="num">112</span> lub <span class="num">999</span>, zostajesz na miejscu.</li>
+          <li><b>Nie wolno przestawiać pojazdu</b> ani sprzątać części z jezdni.</li>
+          <li>Podajesz miejsce: ulicę i numer, numer drogi, najbliższą miejscowość, słupek kilometrowy — oraz liczbę i stan poszkodowanych.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Tylko blacha</h3>
+        <ul class="rules">
+          <li>Usuwasz pojazd z miejsca zdarzenia, żeby nie tamować ruchu.</li>
+          <li>Policja nie jest konieczna, jeśli nie ma rannych.</li>
+        </ul>
+      </div>
+    </div>
+    <ul class="rules">
+      <li>Obowiązek pomocy ma <b>każdy</b>, kto może jej udzielić bez narażania siebie. Odpowiedzialność karna grozi za <b>zaniechanie</b>, nie za nieudolność.</li>
+      <li>Uciskanie klatki piersiowej prowadzisz <b>do przyjazdu zespołu ratownictwa</b>, nie przez ustalony czas.</li>
+      <li>Nieprzytomny, ale oddychający — <b>pozycja boczna</b>, bo chroni przed zachłyśnięciem i niedrożnością dróg oddechowych.</li>
+      <li>Poszkodowanego z auta wyciągasz tylko przy <b>zatrzymaniu krążenia</b>. W innych przypadkach zostaje na miejscu.</li>
+      <li>Podejrzenie urazu kręgosłupa szyjnego: stabilizujesz głowę rękami do przejęcia przez ratowników.</li>
+      <li>Krwotok — <b>opatrunek uciskowy</b> z gazy lub bandaża. Bez jałowego opatrunku użyj odzieży poszkodowanego.</li>
+      <li>Złamanie otwarte — unieruchamiasz <b>dwa sąsiadujące stawy</b>.</li>
+      <li>Płonące ubranie — przewracasz osobę i gasisz przykryciem: kurtką, kocem, płaszczem.</li>
+      <li>Wyziębiony człowiek — wzywasz pomoc, zabierasz do auta, okrywasz i <b>powoli</b> ogrzewasz. Żadnego alkoholu.</li>
+      <li>Dziecko zachłysnęło się w foteliku — zatrzymujesz auto, wyjmujesz dziecko i uderzasz między łopatkami trzymając je głową w dół.</li>
+      <li>Rozlałeś olej na jezdnię i nie umiesz tego usunąć — ostrzegasz innych i zawiadamiasz służby.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Dokumenty i sankcje <span class="tag">kontrola drogowa</span></h2>
+    <ul class="rules">
+      <li>Przekroczenie prędkości o <b>więcej niż 50 km/h w obszarze zabudowanym</b> — policjant zatrzymuje prawo jazdy, starosta wydaje decyzję na <span class="num">3 miesiące</span>. Dokładnie 50 km/h to jeszcze nie to, i poza obszarem zabudowanym też nie.</li>
+      <li>Pokwitowanie zatrzymania prawa jazdy pozwala jechać jeszcze przez <span class="num">24 godziny</span>.</li>
+      <li>Jazda mimo przedłużenia zatrzymania do 6 miesięcy — <b>cofnięcie uprawnień na 5 lat</b>.</li>
+      <li>Przewóz <b>o dwie osoby</b> więcej niż miejsc w dowodzie rejestracyjnym to również zatrzymanie prawa jazdy.</li>
+      <li>Wyjątek: przekroczenie prędkości w celu uchylenia bezpośredniego niebezpieczeństwa, na przykład ratowania życia — prawo jazdy zostaje przy kierowcy.</li>
+      <li>Przy kontroli musisz mieć <b>pokwitowanie</b> zatrzymanego prawa jazdy lub dowodu rejestracyjnego, jeśli takie dostałeś, oraz zagraniczny dokument uprawniający do kierowania. Polskiego prawa jazdy i dowodu rejestracyjnego wozić nie musisz.</li>
+      <li>Pojazd zarejestrowany za granicą: dokument dopuszczający do ruchu i potwierdzenie <b>OC</b>.</li>
+      <li>Nieważne prawo jazdy = brak uprawnień. Żadnych 7 ani 14 dni karencji.</li>
+      <li>Międzynarodowe prawo jazdy wydaje <b>starosta</b>, maksymalnie na 3 lata.</li>
+      <li>Kategoria B daje też motorower i czterokołowiec lekki, a po <b>3 latach</b> jej posiadania motocykl do <span class="num">125 cm³</span> (w Polsce). Ciągnik rolniczy — tylko w kraju.</li>
+      <li>Właściciel ma obowiązek wskazać, komu powierzył pojazd. Wyjątek: auto zostało użyte bez jego wiedzy i woli.</li>
+      <li>Zgubiona tablica — występujesz o zalegalizowany wtórnik, nie jeździsz z jedną tablicą.</li>
+      <li>Nieważna karta parkingowa = brak prawa do miejsca dla osoby z niepełnosprawnością. Nie wolno też zajmować choćby części takiego stanowiska.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Hulajnogi i UTO <span class="tag">nowe przepisy</span></h2>
+    <ul class="rules">
+      <li>Maksymalnie <span class="num">20 km/h</span> na jezdni. Bez pasażera, bez siedzenia, bez holowania innej hulajnogi.</li>
+      <li>Poza strefą zamieszkania hulajnogą jeździ osoba, która ma <b>10 lat i kartę rowerową</b>.</li>
+      <li>Wyprzedzasz hulajnogę z odstępem <b>min. 1 m</b>. Przy wymijaniu ten metr nie obowiązuje.</li>
+      <li>Kierujący urządzeniem transportu osobistego <b>nie może przejeżdżać wzdłuż po przejściu dla pieszych</b>.</li>
+      <li>Hulajnoga może wyjątkowo korzystać z drogi dla pieszych — wtedy z prędkością pieszego.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Słowniczek <span class="tag">terminy z pytań</span></h2>
+
+    <h3 style="margin-top:6px">Światła</h3>
+    <dl class="gloss">
+      <dt>światła mijania <span>ближний свет</span></dt>
+      <dd>Podstawowe światła do jazdy. Świecą asymetrycznie — mocniej na prawe pobocze.</dd>
+      <dt>światła drogowe <span>дальний свет</span></dt>
+      <dd>„Długie”. Kontrolka niebieska. Wyłączasz przy każdym ryzyku oślepienia.</dd>
+      <dt>światła pozycyjne <span>габаритные огни</span></dt>
+      <dd>Pokazują pozycję i szerokość pojazdu, nie oświetlają drogi.</dd>
+      <dt>światła do jazdy dziennej <span>дневные ходовые огни</span></dt>
+      <dd>Tylko z przodu, tylko w dzień przy dobrej widoczności.</dd>
+      <dt>światła przeciwmgłowe <span>противотуманные</span></dt>
+      <dd>Przednie — we mgle i opadach. Tylne — dopiero gdy widoczność spadnie poniżej 50 m.</dd>
+      <dt>światła awaryjne <span>аварийка</span></dt>
+      <dd>Wszystkie kierunkowskazy naraz.</dd>
+      <dt>światła stop <span>стоп-сигналы</span></dt>
+      <dd>Światła hamowania. Niesprawne wykluczają auto z ruchu.</dd>
+      <dt>kierunkowskaz <span>поворотник</span></dt>
+      <dd>Szybsze miganie = przepalona żarówka.</dd>
+      <dt>światła cofania <span>фонари заднего хода</span></dt>
+      <dd>Oświetlają drogę z tyłu i sygnalizują cofanie.</dd>
+      <dt>reflektor <span>фара</span></dt>
+      <dd>Sama obudowa z odbłyśnikiem. „Żarówka” to źródło światła w środku.</dd>
+    </dl>
+
+    <h3 style="margin-top:22px">Płyny eksploatacyjne</h3>
+    <dl class="gloss">
+      <dt>olej silnikowy <span>моторное масло</span></dt>
+      <dd>Poziom mierzysz bagnetem na zimnym silniku albo kilka minut po wyłączeniu.</dd>
+      <dt>płyn hamulcowy <span>тормозная жидкость</span></dt>
+      <dd>W zbiorniku wyrównawczym. Niski poziom zapala czerwoną kontrolkę hamulców.</dd>
+      <dt>płyn chłodniczy <span>охлаждающая жидкость</span></dt>
+      <dd>Zwany też płynem chłodzącym. Przegrzanie = czerwona kontrolka.</dd>
+      <dt>płyn do spryskiwaczy <span>омывайка</span></dt>
+      <dd>Do mycia szyby. Osobny zbiornik, nic wspólnego z chłodzeniem.</dd>
+    </dl>
+
+    <h3 style="margin-top:22px">Podzespoły</h3>
+    <dl class="gloss">
+      <dt>bieżnik <span>протектор</span></dt>
+      <dd>Rzeźba opony. Minimum 1,6 mm.</dd>
+      <dt>ogumienie <span>шины</span></dt>
+      <dd>Zbiorcza nazwa opon w pojeździe.</dd>
+      <dt>zbieżność kół <span>сход-развал</span></dt>
+      <dd>Ustawienie kół. Zła zbieżność ściąga auto w bok i zjada opony.</dd>
+      <dt>amortyzator <span>амортизатор</span></dt>
+      <dd>Zużyty — mniejsza przyczepność i gorsza sterowność.</dd>
+      <dt>klocki i tarcze hamulcowe <span>колодки и диски</span></dt>
+      <dd>Zużyte wykluczają pojazd z ruchu.</dd>
+      <dt>sprzęgło <span>сцепление</span></dt>
+      <dd>Lewy pedał. Zwalniasz je stopniowo, żeby ruszyć płynnie.</dd>
+      <dt>hamulec awaryjny / postojowy <span>ручник</span></dt>
+      <dd>W pytaniach też „dźwignia hamulca awaryjnego”. Trzyma auto na wzniesieniu.</dd>
+      <dt>zagłówek <span>подголовник</span></dt>
+      <dd>Chroni kręgi szyjne. Górna krawędź na wysokości czubka głowy.</dd>
+      <dt>poduszka powietrzna <span>подушка безопасности</span></dt>
+      <dd>Zmniejsza obrażenia, nie chroni w pełni.</dd>
+      <dt>wycieraczki, pióra wycieraczek <span>дворники, щётки</span></dt>
+      <dd>Zużyte = gorsza widoczność w deszczu.</dd>
+      <dt>akumulator <span>аккумулятор</span></dt>
+      <dd>Czerwona kontrolka w czasie jazdy oznacza problem z ładowaniem.</dd>
+      <dt>świece zapłonowe <span>свечи зажигания</span></dt>
+      <dd>Zapalają mieszankę w silniku benzynowym.</dd>
+      <dt>rozrusznik <span>стартер</span></dt>
+      <dd>Uruchamia silnik. Niesprawny — silnik nie osiągnie obrotów rozruchowych.</dd>
+      <dt>układ wydechowy <span>выхлопная система</span></dt>
+      <dd>Nieszczelny = nadmierny hałas.</dd>
+      <dt>koło dojazdowe <span>докатка</span></dt>
+      <dd>Wąskie koło zapasowe. Krótkotrwałe użycie jest dozwolone.</dd>
+    </dl>
+
+    <h3 style="margin-top:22px">Droga i manewry</h3>
+    <dl class="gloss">
+      <dt>jezdnia <span>проезжая часть</span></dt>
+      <dd>Część drogi dla pojazdów. Pobocze to pas obok jezdni.</dd>
+      <dt>pas wyłączenia <span>полоса торможения</span></dt>
+      <dd>Pas zjazdu z autostrady. Dopiero na nim zaczynasz hamować.</dd>
+      <dt>pas awaryjny <span>аварийная полоса</span></dt>
+      <dd>Na zatrzymanie w razie awarii lub złego samopoczucia.</dd>
+      <dt>obszar zabudowany <span>населённый пункт</span></dt>
+      <dd>Od znaku D-42 do D-43. Limit 50 km/h przez całą dobę.</dd>
+      <dt>strefa zamieszkania <span>жилая зона</span></dt>
+      <dd>Pieszy ma pierwszeństwo na całej szerokości drogi, limit 20 km/h.</dd>
+      <dt>wyprzedzanie <span>обгон</span></dt>
+      <dd>Mijasz pojazd jadący w tym samym kierunku.</dd>
+      <dt>wymijanie <span>разъезд со встречным</span></dt>
+      <dd>Mijasz pojazd jadący z przeciwka.</dd>
+      <dt>omijanie <span>объезд препятствия</span></dt>
+      <dd>Mijasz przeszkodę lub pojazd, który stoi.</dd>
+      <dt>zawracanie <span>разворот</span></dt>
+      <dd>Zmiana kierunku jazdy na przeciwny.</dd>
+      <dt>ustąpić pierwszeństwa <span>уступить дорогу</span></dt>
+      <dd>Nie zmusić innego do hamowania ani do zmiany toru jazdy.</dd>
+      <dt>szczególna ostrożność <span>особая осторожность</span></dt>
+      <dd>Zwiększona uwaga i gotowość do natychmiastowej reakcji.</dd>
+      <dt>ograniczone zaufanie <span>ограниченное доверие</span></dt>
+      <dd>Zakładasz, że inny uczestnik może zachować się nieprawidłowo.</dd>
+      <dt>zespół pojazdów <span>автопоезд</span></dt>
+      <dd>Samochód z przyczepą.</dd>
+      <dt>dopuszczalna masa całkowita (dmc) <span>разрешённая максимальная масса</span></dt>
+      <dd>Masa auta z ładunkiem, wpisana w dowodzie rejestracyjnym.</dd>
+      <dt>UTO / urządzenie wspomagające ruch <span>СИМ / средство передвижения</span></dt>
+      <dd>Hulajnoga elektryczna to UTO. Rolki, deskorolka, hulajnoga zwykła to urządzenie wspomagające ruch.</dd>
+    </dl>
+  </section>
+
+  <footer>
+    <div>Źródło: <b>KATALOG dla kandydatów na kierowców, 07/2026</b> — oficjalna baza pytań Ministerstwa Infrastruktury. Uwzględniono wyłącznie pytania z kategorią B, łącznie 2299, w tym arkusz „W trakcie weryfikacji”.</div>
+    <div>Ściąga nie zastępuje bazy pytań. 2046 pytań kat. B ma film albo zdjęcie i sprawdza konkretną sytuację na drodze — te trzeba przeklikać.</div>
+  </footer>
+
+</div>
+</body>
+</html>
