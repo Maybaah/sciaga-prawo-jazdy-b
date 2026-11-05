@@ -422,6 +422,176 @@
   }
 
   a { color: var(--blue); }
+
+  /* contents */
+  nav.toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 8px;
+    font-size: 14px;
+  }
+
+  nav.toc a {
+    color: var(--ink-2);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 3px 10px;
+    white-space: nowrap;
+  }
+
+  nav.toc a:hover { color: var(--ink); border-color: var(--line-strong); }
+
+  section[id] { scroll-margin-top: 16px; }
+
+  .hint { font-size: 14px; color: var(--ink-3); }
+
+  /* priority ladder */
+  .ladder { display: flex; flex-direction: column; gap: 6px; }
+
+  .rung {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 9px 14px;
+    font-size: 15px;
+    color: var(--ink-2);
+  }
+
+  .rung b { color: var(--ink); font-weight: 600; }
+
+  .r-n {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-weight: 600;
+    color: var(--blue);
+  }
+
+  /* sign finder */
+  .finder {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: var(--ground);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .finder label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  .finder input {
+    flex: 1 1 220px;
+    min-width: 0;
+    font: inherit;
+    font-size: 15px;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    padding: 7px 10px;
+    border-radius: 0;
+  }
+
+  .finder input:focus { outline: 2px solid var(--blue); outline-offset: -1px; }
+
+  .finder-count { font-size: 13px; color: var(--ink-3); }
+
+  h3.group {
+    font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    margin: 8px 0 0;
+  }
+
+  .signs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .sign {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 10px 12px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .s-img {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+    background: #F4F4F1;
+    border-radius: 3px;
+  }
+
+  .s-img img { max-height: 60px; max-width: 100%; width: auto; }
+
+  .s-code {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-3);
+  }
+
+  .s-name { font-size: 14px; font-weight: 600; line-height: 1.35; }
+  .s-note { font-size: 13px; color: var(--ink-2); line-height: 1.45; margin-top: 4px; }
+  .s-note b { color: var(--ink); font-weight: 600; }
+
+  .signs-empty { font-size: 14px; color: var(--ink-3); }
+
+  /* road markings */
+  .marks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+  }
+
+  .mark {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .mark svg { flex: 0 0 96px; width: 96px; height: 32px; }
+  .mark b { display: block; font-weight: 600; }
+  .mark span { color: var(--ink-2); line-height: 1.45; display: block; }
+  .mark span b { display: inline; color: var(--ink); }
+
+  .mark .asph { fill: #4A4E55; }
+  .mark .ln { stroke: #FFFFFF; stroke-width: 3; fill: none; }
+  .mark .ln.wide { stroke-width: 6; }
+  .mark .ln.thin { stroke-width: 2; }
+  .mark .ln.yellow { stroke: #F2C230; }
+  .mark .fill { fill: #FFFFFF; }
+  .mark .shoulder { fill: #8C7B63; }
+
+  dl.gloss-plain dt { padding-right: 14px; }
+
+  @media (max-width: 420px) {
+    .signs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .mark svg { flex-basis: 72px; width: 72px; }
+  }
 </style>
 
 </head>
@@ -429,12 +599,38 @@
 <div class="wrap">
 
   <header class="masthead">
-    <div class="eyebrow">Katalog pytań egzaminacyjnych · lipiec 2026 · kategoria B</div>
+    <div class="eyebrow">Katalog pytań 07/2026 · przepisy na listopad 2026 · kategoria B</div>
     <h1>Ściąga<br>kat. B</h1>
-    <p class="lede">Wszystko, co pojawia się w oficjalnym katalogu pytań dla kategorii B — <strong>2299 pytań</strong> — zebrane w jedno miejsce i napisane prostym językiem. Do tego zadanie nr 1 z egzaminu praktycznego, z gotowymi zdaniami do powiedzenia, i słowniczek terminów, których egzamin używa bez tłumaczenia.</p>
+    <p class="lede">Wszystko, co pojawia się w oficjalnym katalogu pytań dla kategorii B — <strong>2299 pytań</strong> — zebrane w jedno miejsce i napisane prostym językiem. Do tego <strong>wszystkie znaki ostrzegawcze, zakazu i nakazu</strong>, najważniejsze informacyjne, znaki poziome, sygnały świetlne i pierwszeństwo — według ustawy Prawo o ruchu drogowym i rozporządzenia o znakach. Na końcu zadanie nr 1 z egzaminu praktycznego i słowniczek.</p>
   </header>
 
-  <section>
+  <nav class="toc" aria-label="Spis treści">
+    <a href="#predkosc">Prędkość</a>
+    <a href="#odstepy">Odstępy</a>
+    <a href="#piesi">Piesi</a>
+    <a href="#pierwszenstwo">Pierwszeństwo</a>
+    <a href="#sygnaly">Sygnały</a>
+    <a href="#znaki">Znaki pionowe</a>
+    <a href="#pozioma">Znaki poziome</a>
+    <a href="#manewry-zakazy">Wyprzedzanie</a>
+    <a href="#postoj">Postój</a>
+    <a href="#swiatla">Światła</a>
+    <a href="#lampki">Kontrolki</a>
+    <a href="#plyny">Płyny</a>
+    <a href="#zadanie1">Zadanie nr 1</a>
+    <a href="#pasy">Pasażerowie</a>
+    <a href="#ladunek">Ładunek</a>
+    <a href="#technika">Technika</a>
+    <a href="#warunki">Pogoda</a>
+    <a href="#przejazd">Przejazd kolejowy</a>
+    <a href="#wypadek">Wypadek</a>
+    <a href="#alkohol">Alkohol i okres próbny</a>
+    <a href="#dokumenty">Dokumenty</a>
+    <a href="#hulajnogi">Hulajnogi</a>
+    <a href="#slowniczek">Słowniczek</a>
+  </nav>
+
+  <section id="predkosc">
     <h2>Prędkość <span class="tag">limity dopuszczalne</span></h2>
     <div class="scroller">
       <table>
@@ -489,7 +685,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="odstepy">
     <h2>Odstępy <span class="tag">metry, które trzeba znać</span></h2>
     <div class="scroller">
       <table>
@@ -516,7 +712,7 @@
     </ul>
   </section>
 
-  <section>
+  <section id="piesi">
     <h2>Pieszy zawsze wygrywa <span class="tag">i osoby z niepełnosprawnością</span></h2>
     <ul class="rules">
       <li>Pieszemu <b>wchodzącemu</b> na przejście i będącemu na przejściu ustępujesz pierwszeństwa. To samo dotyczy osoby pchającej urządzenie wspomagające ruch.</li>
@@ -530,7 +726,1413 @@
     </ul>
   </section>
 
-  <section>
+  <section id="pierwszenstwo">
+    <h2>Kto ma pierwszeństwo <span class="tag">skrzyżowania</span></h2>
+
+    <div class="ladder">
+      <div class="rung"><span class="r-n">1</span><div><b>Polecenia osoby kierującej ruchem</b> — policjant, ITD, Żandarmeria, osoba przy przejściu dla dzieci.</div></div>
+      <div class="rung"><span class="r-n">2</span><div><b>Sygnały świetlne</b> — są ważniejsze od znaków regulujących pierwszeństwo.</div></div>
+      <div class="rung"><span class="r-n">3</span><div><b>Znaki drogowe</b> — pionowe, potem poziome. Żółte znaki poziome (tymczasowe) wygrywają z białymi.</div></div>
+      <div class="rung"><span class="r-n">4</span><div><b>Przepisy ogólne</b> — prawa ręka, zasady włączania się do ruchu.</div></div>
+    </div>
+    <p class="hint">Stosujesz się do wyższego szczebla nawet wtedy, gdy przepis mówi co innego. Policjant każe jechać na czerwonym — jedziesz.</p>
+
+    <div class="split">
+      <div class="box">
+        <h3>Skrzyżowanie równorzędne</h3>
+        <ul class="rules">
+          <li>Ustępujesz pojazdowi <b>z prawej strony</b>.</li>
+          <li>Skręcając w lewo, ustępujesz też jadącym z przeciwka <b>na wprost i w prawo</b>.</li>
+          <li><b>Tramwaj</b> ma pierwszeństwo przed innymi pojazdami, bez względu na to, z której strony jedzie.</li>
+          <li>Te same zasady działają, gdy kierunki ruchu przecinają się poza skrzyżowaniem.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Droga z pierwszeństwem</h3>
+        <ul class="rules">
+          <li>Stoisz przed A-7 lub B-20 — ustępujesz wszystkim na drodze z pierwszeństwem, także tramwajowi.</li>
+          <li>A-7 i B-20 w obrębie skrzyżowania dotyczą tylko <b>najbliższej jezdni</b>.</li>
+          <li>Droga z pierwszeństwem skręca (tabliczka T-6a) — między jadącymi po niej obowiązuje znowu prawa ręka i zasada skrętu w lewo.</li>
+          <li>Przy B-20 zatrzymujesz się zawsze — przy linii P-12, a bez niej tam, skąd widzisz drogę.</li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="rules">
+      <li><b>Rondo:</b> C-12 razem z A-7 — pierwszeństwo ma ten, kto <b>już jest</b> na rondzie. Sam C-12 bez A-7 — prawa ręka, czyli pierwszeństwo ma wjeżdżający.</li>
+      <li><b>Włączanie się do ruchu</b> — ustępujesz <b>wszystkim</b>: ruszając z postoju, wyjeżdżając z parkingu, posesji, stacji paliw, drogi wewnętrznej, strefy zamieszkania, z pobocza, z pola albo z drogi gruntowej na utwardzoną. Tramwaj wyjeżdżający z zajezdni lub pętli też się włącza.</li>
+      <li>Połączenie drogi twardej z <b>gruntową</b> albo z <b>drogą wewnętrzną</b> nie jest skrzyżowaniem. Prawa ręka tam nie działa.</li>
+      <li><b>Zmiana pasa:</b> ustępujesz jadącym po pasie, na który wjeżdżasz, i pojazdowi, który wjeżdża na ten sam pas z prawej.</li>
+      <li>Skręcając w drogę poprzeczną, ustępujesz <b>pieszemu</b> przechodzącemu przez jezdnię, na którą wjeżdżasz, i <b>rowerzyście</b> jadącemu na wprost — po jezdni, pasie lub drodze dla rowerów.</li>
+      <li>Rowerzyście i hulajnodze, którzy <b>są już na przejeździe</b> dla rowerów, ustępujesz zawsze.</li>
+      <li>Przejeżdżasz przez chodnik albo drogę dla rowerów, np. do bramy — jedziesz powoli i ustępujesz pieszym i rowerzystom.</li>
+      <li>Na obszarze zabudowanym zwalniasz, a w razie potrzeby stajesz, żeby <b>autobus</b> mógł wyjechać z przystanku, gdy sygnalizuje kierunkowskazem.</li>
+      <li>Nie wjeżdżasz na skrzyżowanie, jeśli za nim nie ma miejsca. Dotyczy to też zielonego światła.</li>
+      <li>Nie wolno rozdzielać kolumny pieszych.</li>
+    </ul>
+
+    <div class="note">
+      <b>Pojazd uprzywilejowany</b> — niebieskie światła błyskowe i sygnał dźwiękowy o zmiennym tonie. Ułatwiasz przejazd: zjeżdżasz, a jeśli trzeba — stajesz. Na obszarze zabudowanym <b>nie wolno go wyprzedzać</b>.
+    </div>
+
+    <div class="split">
+      <div class="box">
+        <h3>Korytarz życia</h3>
+        <ul class="rules">
+          <li>Korek na jezdni z co najmniej dwoma pasami w jednym kierunku.</li>
+          <li><b>Skrajny lewy pas</b> zjeżdża do <b>lewej</b> krawędzi.</li>
+          <li><b>Wszystkie pozostałe</b> pasy zjeżdżają do <b>prawej</b>.</li>
+          <li>Nie wolno jechać korytarzem za karetką. Wyjątek: pomoc drogowa i zarządca drogi w akcji.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Jazda na suwak</h3>
+        <ul class="rules">
+          <li>Korek, a pas się kończy albo jest na nim przeszkoda.</li>
+          <li>Jedziesz swoim pasem <b>do samego końca</b>, nie zjeżdżasz wcześniej.</li>
+          <li>Jadący obok wpuszcza <b>jeden pojazd</b> bezpośrednio przed miejscem zwężenia, potem znowu jedzie sam.</li>
+          <li>Kończą się dwa pasy z obu stron — środkowy wpuszcza najpierw z prawej, potem z lewej.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="sygnaly">
+    <h2>Sygnały świetlne <span class="tag">i polecenia policjanta</span></h2>
+    <div class="lamps">
+      <div class="lamp green">
+        <div class="who">S-1 · zielone</div>
+        <div class="what">Wolno wjechać</div>
+        <div class="do">Ale nie, jeśli zablokujesz pieszych schodzących z jezdni albo nie zdążysz opuścić skrzyżowania.</div>
+      </div>
+      <div class="lamp amber">
+        <div class="who">S-1 · żółte</div>
+        <div class="what">Nie wolno wjechać</div>
+        <div class="do">Chyba że jesteś tak blisko, że stanąłbyś tylko gwałtownym hamowaniem. Zaraz zapali się czerwone.</div>
+      </div>
+      <div class="lamp red">
+        <div class="who">S-1 · czerwone</div>
+        <div class="what">Nie wolno wjechać</div>
+        <div class="do">Stajesz przed linią zatrzymania, a bez niej — przed sygnalizatorem.</div>
+      </div>
+      <div class="lamp red">
+        <div class="who">czerwone + żółte</div>
+        <div class="what">Nadal nie wolno</div>
+        <div class="do">Zaraz zapali się zielone. Nie ruszasz „na żółtym”.</div>
+      </div>
+      <div class="lamp green">
+        <div class="who">S-2 · zielona strzałka</div>
+        <div class="what">Warunkowy skręt na czerwonym</div>
+        <div class="do"><b>Najpierw stajesz</b>, potem skręcasz w najbliższą jezdnię, nie utrudniając ruchu. Strzałka w lewo pozwala też zawrócić z lewego pasa.</div>
+      </div>
+      <div class="lamp green">
+        <div class="who">S-3 · sygnalizator kierunkowy</div>
+        <div class="what">Strzałki w komorach</div>
+        <div class="do">Zielona strzałka = jazda bez kolizji, nikomu nie ustępujesz. Przy S-3 strzałka na jezdni nie daje już prawa do zawracania.</div>
+      </div>
+      <div class="lamp amber">
+        <div class="who">żółte migające</div>
+        <div class="what">Szczególna ostrożność</div>
+        <div class="do">Sygnalizacja nie kieruje ruchem. Obowiązują znaki, a bez znaków — prawa ręka.</div>
+      </div>
+      <div class="lamp red">
+        <div class="who">czerwone migające</div>
+        <div class="what">Zakaz wjazdu</div>
+        <div class="do">Również dwa czerwone migające na przemian, np. przed przejazdem kolejowym.</div>
+      </div>
+      <div class="lamp">
+        <div class="who">S-4 · nad pasem</div>
+        <div class="what">Pas o zmiennym kierunku</div>
+        <div class="do">Zielone — wolno wjechać na pas. Czerwone — nie wolno. Pas jest wyznaczony podwójną przerywaną P-5.</div>
+      </div>
+      <div class="lamp">
+        <div class="who">białe cyfry</div>
+        <div class="what">Prędkość zalecana</div>
+        <div class="do">Tablica z białymi cyframi to zalecenie, nie limit.</div>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="box">
+        <h3>Policjant na skrzyżowaniu</h3>
+        <ul class="rules">
+          <li>Stoi do Ciebie <b>bokiem</b> — wolno jechać.</li>
+          <li>Stoi <b>przodem albo tyłem</b> — stój.</li>
+          <li><b>Ręka w górze</b> — zaraz zmiana. Kto miał jechać, za chwilę stanie, i odwrotnie.</li>
+          <li>Ręka wyciągnięta <b>poziomo w poprzek</b> Twojego kierunku — stój.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Zatrzymanie do kontroli</h3>
+        <ul class="rules">
+          <li>W dzień — tarcza: czerwone koło z białym obrzeżem. Umundurowany policjant może dać znak samą ręką.</li>
+          <li>W nocy — tarcza z czerwonym światłem albo latarka z czerwonym światłem.</li>
+          <li>Radiowóz <b>za Tobą</b> włącza na chwilę niebieskie światło i syrenę o zmiennym tonie — masz się zatrzymać.</li>
+          <li>Osoba przy przejściu z dziećmi podnosi <b>żółtą tarczę ze znakiem STOP</b> — stajesz.</li>
+          <li>Autobus szkolny z żółtą tablicą STOP stoi przy jezdni — stajesz.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="znaki">
+    <h2>Znaki pionowe <span class="tag">wszystkie A, B, C + najważniejsze D, F, G, T</span></h2>
+
+    <div class="split">
+      <div class="box">
+        <h3>Jak czytać kształt</h3>
+        <ul class="rules">
+          <li><b>A — ostrzegawcze:</b> żółty trójkąt z czerwoną obwódką. Stoją <span class="num">150–300 m</span> przed niebezpieczeństwem, gdy limit przekracza 60 km/h, a do 100 m na pozostałych drogach.</li>
+          <li><b>B — zakazu:</b> okrągłe, czerwona obwódka. Obowiązują od miejsca ustawienia, na drodze, przy której stoją.</li>
+          <li><b>C — nakazu:</b> okrągłe, niebieskie.</li>
+          <li><b>D — informacyjne:</b> kwadraty i prostokąty, zwykle niebieskie.</li>
+          <li><b>T — tabliczki:</b> pod znakiem są jego częścią i zmieniają jego zakres.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Gdzie kończy się zakaz</h3>
+        <ul class="rules">
+          <li><b>B-25, B-26, B-29, B-33, B-35–B-38</b> — do znaku odwołującego, a bez niego do <b>najbliższego skrzyżowania</b>.</li>
+          <li><b>B-21, B-22, C-1–C-11</b> — tylko na najbliższym skrzyżowaniu.</li>
+          <li><b>B-23</b> — do najbliższego skrzyżowania włącznie.</li>
+          <li>Wyjazd z drogi gruntowej lub posesji to nie skrzyżowanie — zakaz trwa dalej.</li>
+          <li>Znak zakazu pod D-42 obowiązuje do D-43, pod D-52 — do D-53, chyba że wcześniej go zmieniono.</li>
+          <li>Tabliczka T-20 podaje długość odcinka, na którym zakaz obowiązuje.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>B-42 „koniec zakazów”</b> odwołuje tylko B-23, B-25, B-26, B-29 i B-33. Zakazu postoju i zatrzymywania nie odwołuje. Znak po <b>lewej</b> stronie jezdni powtarza znak z prawej; znak nad pasem dotyczy tylko tego pasa.
+    </div>
+
+    <div class="finder">
+      <label for="sign-q">Szukaj znaku</label>
+      <input id="sign-q" type="search" placeholder="np. B-36, rondo, wyprzedzania" autocomplete="off">
+      <span id="sign-count" class="finder-count" aria-live="polite"></span>
+    </div>
+
+    <h3 class="group">A · ostrzegawcze</h3>
+    <div class="signs">
+        <div class="sign" data-q="a-1 niebezpieczny zakręt w prawo">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/PL_road_sign_A-1.svg" alt="A-1 niebezpieczny zakręt w prawo" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-1</div>
+          <div class="s-name">niebezpieczny zakręt w prawo</div>
+        </div>
+        <div class="sign" data-q="a-2 niebezpieczny zakręt w lewo">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/PL_road_sign_A-2.svg" alt="A-2 niebezpieczny zakręt w lewo" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-2</div>
+          <div class="s-name">niebezpieczny zakręt w lewo</div>
+        </div>
+        <div class="sign" data-q="a-3 niebezpieczne zakręty – pierwszy w prawo">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/PL_road_sign_A-3.svg" alt="A-3 niebezpieczne zakręty – pierwszy w prawo" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-3</div>
+          <div class="s-name">niebezpieczne zakręty – pierwszy w prawo</div>
+          <div class="s-note">Z tabliczką T-4 — więcej niż dwa zakręty, z T-5 — początek drogi krętej.</div>
+        </div>
+        <div class="sign" data-q="a-4 niebezpieczne zakręty – pierwszy w lewo">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/PL_road_sign_A-4.svg" alt="A-4 niebezpieczne zakręty – pierwszy w lewo" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-4</div>
+          <div class="s-name">niebezpieczne zakręty – pierwszy w lewo</div>
+        </div>
+        <div class="sign" data-q="a-5 skrzyżowanie dróg">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/0/02/PL_road_sign_A-5.svg" alt="A-5 skrzyżowanie dróg" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-5</div>
+          <div class="s-name">skrzyżowanie dróg</div>
+          <div class="s-note">Pierwszeństwo nie jest określone znakami: obowiązuje <b>prawa ręka</b>.</div>
+        </div>
+        <div class="sign" data-q="a-6a skrzyżowanie z drogą podporządkowaną po obu stronach">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/PL_road_sign_A-6a.svg" alt="A-6a skrzyżowanie z drogą podporządkowaną po obu stronach" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-6a</div>
+          <div class="s-name">skrzyżowanie z drogą podporządkowaną po obu stronach</div>
+          <div class="s-note">To Ty jesteś na drodze z pierwszeństwem.</div>
+        </div>
+        <div class="sign" data-q="a-6b skrzyżowanie z drogą podporządkowaną z prawej">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/PL_road_sign_A-6b.svg" alt="A-6b skrzyżowanie z drogą podporządkowaną z prawej" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-6b</div>
+          <div class="s-name">skrzyżowanie z drogą podporządkowaną z prawej</div>
+        </div>
+        <div class="sign" data-q="a-6c skrzyżowanie z drogą podporządkowaną z lewej">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/PL_road_sign_A-6c.svg" alt="A-6c skrzyżowanie z drogą podporządkowaną z lewej" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-6c</div>
+          <div class="s-name">skrzyżowanie z drogą podporządkowaną z lewej</div>
+        </div>
+        <div class="sign" data-q="a-6d wlot drogi jednokierunkowej z prawej">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/PL_road_sign_A-6d.svg" alt="A-6d wlot drogi jednokierunkowej z prawej" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-6d</div>
+          <div class="s-name">wlot drogi jednokierunkowej z prawej</div>
+          <div class="s-note">Podporządkowana jednokierunkowa wpada z prawej.</div>
+        </div>
+        <div class="sign" data-q="a-6e wlot drogi jednokierunkowej z lewej">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/7/70/PL_road_sign_A-6e.svg" alt="A-6e wlot drogi jednokierunkowej z lewej" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-6e</div>
+          <div class="s-name">wlot drogi jednokierunkowej z lewej</div>
+        </div>
+        <div class="sign" data-q="a-7 ustąp pierwszeństwa">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/7/74/PL_road_sign_A-7.svg" alt="A-7 ustąp pierwszeństwa" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-7</div>
+          <div class="s-name">ustąp pierwszeństwa</div>
+          <div class="s-note">Stoi do <span class="num">50 m</span> przed skrzyżowaniem (do 25 m na drogach do 60 km/h). W obrębie skrzyżowania dotyczy tylko <b>najbliższej jezdni</b>.</div>
+        </div>
+        <div class="sign" data-q="a-8 skrzyżowanie o ruchu okrężnym">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/PL_road_sign_A-8.svg" alt="A-8 skrzyżowanie o ruchu okrężnym" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-8</div>
+          <div class="s-name">skrzyżowanie o ruchu okrężnym</div>
+          <div class="s-note">Samo ostrzeżenie. Kto ma pierwszeństwo — mówi A-7 przy wlocie.</div>
+        </div>
+        <div class="sign" data-q="a-9 przejazd kolejowy z zaporami">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/PL_road_sign_A-9.svg" alt="A-9 przejazd kolejowy z zaporami" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-9</div>
+          <div class="s-name">przejazd kolejowy z zaporami</div>
+          <div class="s-note">Zapory albo półzapory. Pod nim słupek G-1a z trzema kreskami.</div>
+        </div>
+        <div class="sign" data-q="a-10 przejazd kolejowy bez zapór">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/PL_road_sign_A-10.svg" alt="A-10 przejazd kolejowy bez zapór" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-10</div>
+          <div class="s-name">przejazd kolejowy bez zapór</div>
+          <div class="s-note">Przy torach stoi krzyż św. Andrzeja G-3 lub G-4.</div>
+        </div>
+        <div class="sign" data-q="a-11 nierówna droga">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/PL_road_sign_A-11.svg" alt="A-11 nierówna droga" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-11</div>
+          <div class="s-name">nierówna droga</div>
+        </div>
+        <div class="sign" data-q="a-11a próg zwalniający">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/PL_road_sign_A-11a.svg" alt="A-11a próg zwalniający" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-11a</div>
+          <div class="s-name">próg zwalniający</div>
+        </div>
+        <div class="sign" data-q="a-12a zwężenie jezdni – dwustronne">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/PL_road_sign_A-12a.svg" alt="A-12a zwężenie jezdni – dwustronne" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-12a</div>
+          <div class="s-name">zwężenie jezdni – dwustronne</div>
+        </div>
+        <div class="sign" data-q="a-12b zwężenie jezdni – prawostronne">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/PL_road_sign_A-12b.svg" alt="A-12b zwężenie jezdni – prawostronne" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-12b</div>
+          <div class="s-name">zwężenie jezdni – prawostronne</div>
+        </div>
+        <div class="sign" data-q="a-12c zwężenie jezdni – lewostronne">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/7/75/PL_road_sign_A-12c.svg" alt="A-12c zwężenie jezdni – lewostronne" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-12c</div>
+          <div class="s-name">zwężenie jezdni – lewostronne</div>
+        </div>
+        <div class="sign" data-q="a-13 ruchomy most">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/PL_road_sign_A-13.svg" alt="A-13 ruchomy most" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-13</div>
+          <div class="s-name">ruchomy most</div>
+          <div class="s-note">Most zwodzony lub obrotowy.</div>
+        </div>
+        <div class="sign" data-q="a-14 roboty na drodze">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/PL_road_sign_A-14.svg" alt="A-14 roboty na drodze" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-14</div>
+          <div class="s-name">roboty na drodze</div>
+          <div class="s-note">Z tabliczką T-19 — malowanie znaków poziomych.</div>
+        </div>
+        <div class="sign" data-q="a-15 śliska jezdnia">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/PL_road_sign_A-15.svg" alt="A-15 śliska jezdnia" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-15</div>
+          <div class="s-name">śliska jezdnia</div>
+        </div>
+        <div class="sign" data-q="a-16 przejście dla pieszych">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/8/88/PL_road_sign_A-16.svg" alt="A-16 przejście dla pieszych" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-16</div>
+          <div class="s-name">przejście dla pieszych</div>
+          <div class="s-note">Ostrzega. Samo przejście oznacza D-6.</div>
+        </div>
+        <div class="sign" data-q="a-17 dzieci">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/PL_road_sign_A-17.svg" alt="A-17 dzieci" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-17</div>
+          <div class="s-name">dzieci</div>
+          <div class="s-note">Miejsce uczęszczane przez dzieci, np. szkoła.</div>
+        </div>
+        <div class="sign" data-q="a-18a zwierzęta gospodarskie">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/PL_road_sign_A-18a.svg" alt="A-18a zwierzęta gospodarskie" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-18a</div>
+          <div class="s-name">zwierzęta gospodarskie</div>
+        </div>
+        <div class="sign" data-q="a-18b zwierzęta dzikie">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/PL_road_sign_A-18b.svg" alt="A-18b zwierzęta dzikie" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-18b</div>
+          <div class="s-name">zwierzęta dzikie</div>
+        </div>
+        <div class="sign" data-q="a-19 boczny wiatr">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/4/46/PL_road_sign_A-19.svg" alt="A-19 boczny wiatr" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-19</div>
+          <div class="s-name">boczny wiatr</div>
+        </div>
+        <div class="sign" data-q="a-20 odcinek jezdni o ruchu dwukierunkowym">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/PL_road_sign_A-20.svg" alt="A-20 odcinek jezdni o ruchu dwukierunkowym" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-20</div>
+          <div class="s-name">odcinek jezdni o ruchu dwukierunkowym</div>
+          <div class="s-note">Jedziesz jednokierunkową — za chwilę ruch z przeciwka.</div>
+        </div>
+        <div class="sign" data-q="a-21 tramwaj">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/PL_road_sign_A-21.svg" alt="A-21 tramwaj" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-21</div>
+          <div class="s-name">tramwaj</div>
+          <div class="s-note">Przejazd przez tory tramwajowe.</div>
+        </div>
+        <div class="sign" data-q="a-22 niebezpieczny zjazd">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/PL_road_sign_A-22.svg" alt="A-22 niebezpieczny zjazd" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-22</div>
+          <div class="s-name">niebezpieczny zjazd</div>
+          <div class="s-note">Spadek podaje tabliczka T-9.</div>
+        </div>
+        <div class="sign" data-q="a-23 stromy podjazd">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/PL_road_sign_A-23.svg" alt="A-23 stromy podjazd" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-23</div>
+          <div class="s-name">stromy podjazd</div>
+        </div>
+        <div class="sign" data-q="a-24 rowerzyści">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/PL_road_sign_A-24.svg" alt="A-24 rowerzyści" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-24</div>
+          <div class="s-name">rowerzyści</div>
+          <div class="s-note">Rowerzyści wjeżdżają na jezdnię albo ją przecinają.</div>
+        </div>
+        <div class="sign" data-q="a-25 spadające odłamki skalne">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/PL_road_sign_A-25.svg" alt="A-25 spadające odłamki skalne" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-25</div>
+          <div class="s-name">spadające odłamki skalne</div>
+        </div>
+        <div class="sign" data-q="a-26 lotnisko">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/PL_road_sign_A-26.svg" alt="A-26 lotnisko" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-26</div>
+          <div class="s-name">lotnisko</div>
+          <div class="s-note">Nisko przelatujący samolot lub śmigłowiec.</div>
+        </div>
+        <div class="sign" data-q="a-27 nabrzeże lub brzeg rzeki">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/PL_road_sign_A-27.svg" alt="A-27 nabrzeże lub brzeg rzeki" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-27</div>
+          <div class="s-name">nabrzeże lub brzeg rzeki</div>
+        </div>
+        <div class="sign" data-q="a-28 sypki żwir">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/PL_road_sign_A-28.svg" alt="A-28 sypki żwir" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-28</div>
+          <div class="s-name">sypki żwir</div>
+        </div>
+        <div class="sign" data-q="a-29 sygnały świetlne">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/PL_road_sign_A-29.svg" alt="A-29 sygnały świetlne" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-29</div>
+          <div class="s-name">sygnały świetlne</div>
+          <div class="s-note">Za chwilę sygnalizacja świetlna.</div>
+        </div>
+        <div class="sign" data-q="a-30 inne niebezpieczeństwo">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/PL_road_sign_A-30.svg" alt="A-30 inne niebezpieczeństwo" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-30</div>
+          <div class="s-name">inne niebezpieczeństwo</div>
+          <div class="s-note">Rodzaj zagrożenia podaje tabliczka pod znakiem.</div>
+        </div>
+        <div class="sign" data-q="a-31 niebezpieczne pobocze">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/PL_road_sign_A-31.svg" alt="A-31 niebezpieczne pobocze" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-31</div>
+          <div class="s-name">niebezpieczne pobocze</div>
+          <div class="s-note">Pobocze miękkie lub obniżone.</div>
+        </div>
+        <div class="sign" data-q="a-32 oszronienie jezdni">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/1/13/PL_road_sign_A-32.svg" alt="A-32 oszronienie jezdni" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-32</div>
+          <div class="s-name">oszronienie jezdni</div>
+          <div class="s-note">Szron lub gołoledź.</div>
+        </div>
+        <div class="sign" data-q="a-33 zator drogowy">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/PL_road_sign_A-33.svg" alt="A-33 zator drogowy" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-33</div>
+          <div class="s-name">zator drogowy</div>
+        </div>
+        <div class="sign" data-q="a-34 wypadek drogowy">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/7/71/PL_road_sign_A-34.svg" alt="A-34 wypadek drogowy" loading="lazy" decoding="async"></div>
+          <div class="s-code">A-34</div>
+          <div class="s-name">wypadek drogowy</div>
+        </div>
+    </div>
+
+    <h3 class="group">B · zakazu</h3>
+    <div class="signs">
+        <div class="sign" data-q="b-1 zakaz ruchu w obu kierunkach">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/a/af/PL_road_sign_B-1.svg" alt="B-1 zakaz ruchu w obu kierunkach" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-1</div>
+          <div class="s-name">zakaz ruchu w obu kierunkach</div>
+          <div class="s-note">Dotyczy pojazdów, kolumn pieszych, jeźdźców. Pieszy pojedynczy może iść.</div>
+        </div>
+        <div class="sign" data-q="b-2 zakaz wjazdu">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/1/10/PL_road_sign_B-2.svg" alt="B-2 zakaz wjazdu" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-2</div>
+          <div class="s-name">zakaz wjazdu</div>
+          <div class="s-note">Od strony, po której stoi znak.</div>
+        </div>
+        <div class="sign" data-q="b-3 zakaz wjazdu pojazdów silnikowych">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/PL_road_sign_B-3.svg" alt="B-3 zakaz wjazdu pojazdów silnikowych" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-3</div>
+          <div class="s-name">zakaz wjazdu pojazdów silnikowych</div>
+          <div class="s-note">Z wyjątkiem motocykli jednośladowych.</div>
+        </div>
+        <div class="sign" data-q="b-3a zakaz wjazdu autobusów">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/PL_road_sign_B-3a.svg" alt="B-3a zakaz wjazdu autobusów" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-3a</div>
+          <div class="s-name">zakaz wjazdu autobusów</div>
+        </div>
+        <div class="sign" data-q="b-4 zakaz wjazdu motocykli">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/PL_road_sign_B-4.svg" alt="B-4 zakaz wjazdu motocykli" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-4</div>
+          <div class="s-name">zakaz wjazdu motocykli</div>
+        </div>
+        <div class="sign" data-q="b-5 zakaz wjazdu samochodów ciężarowych">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/PL_road_sign_B-5.svg" alt="B-5 zakaz wjazdu samochodów ciężarowych" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-5</div>
+          <div class="s-name">zakaz wjazdu samochodów ciężarowych</div>
+          <div class="s-note">Ciężarowe ponad 3,5 t, ciągniki samochodowe i rolnicze, pojazdy wolnobieżne.</div>
+        </div>
+        <div class="sign" data-q="b-6 zakaz wjazdu ciągników rolniczych">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/a/af/PL_road_sign_B-6.svg" alt="B-6 zakaz wjazdu ciągników rolniczych" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-6</div>
+          <div class="s-name">zakaz wjazdu ciągników rolniczych</div>
+          <div class="s-note">Także pojazdów wolnobieżnych.</div>
+        </div>
+        <div class="sign" data-q="b-7 zakaz wjazdu pojazdów silnikowych z przyczepą">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/4/45/PL_road_sign_B-7.svg" alt="B-7 zakaz wjazdu pojazdów silnikowych z przyczepą" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-7</div>
+          <div class="s-name">zakaz wjazdu pojazdów silnikowych z przyczepą</div>
+          <div class="s-note"><b>Nie dotyczy</b> przyczepy jednoosiowej ani naczepy.</div>
+        </div>
+        <div class="sign" data-q="b-8 zakaz wjazdu pojazdów zaprzęgowych">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/PL_road_sign_B-8.svg" alt="B-8 zakaz wjazdu pojazdów zaprzęgowych" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-8</div>
+          <div class="s-name">zakaz wjazdu pojazdów zaprzęgowych</div>
+        </div>
+        <div class="sign" data-q="b-9 zakaz wjazdu rowerów">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/8/89/PL_road_sign_B-9.svg" alt="B-9 zakaz wjazdu rowerów" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-9</div>
+          <div class="s-name">zakaz wjazdu rowerów</div>
+        </div>
+        <div class="sign" data-q="b-10 zakaz wjazdu motorowerów">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/PL_road_sign_B-10.svg" alt="B-10 zakaz wjazdu motorowerów" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-10</div>
+          <div class="s-name">zakaz wjazdu motorowerów</div>
+        </div>
+        <div class="sign" data-q="b-11 zakaz wjazdu wózków rowerowych">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/PL_road_sign_B-11.svg" alt="B-11 zakaz wjazdu wózków rowerowych" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-11</div>
+          <div class="s-name">zakaz wjazdu wózków rowerowych</div>
+        </div>
+        <div class="sign" data-q="b-12 zakaz wjazdu wózków ręcznych">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/7/71/PL_road_sign_B-12.svg" alt="B-12 zakaz wjazdu wózków ręcznych" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-12</div>
+          <div class="s-name">zakaz wjazdu wózków ręcznych</div>
+        </div>
+        <div class="sign" data-q="b-13 zakaz wjazdu z towarami wybuchowymi lub łatwo zapalnymi">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/PL_road_sign_B-13.svg" alt="B-13 zakaz wjazdu z towarami wybuchowymi lub łatwo zapalnymi" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-13</div>
+          <div class="s-name">zakaz wjazdu z towarami wybuchowymi lub łatwo zapalnymi</div>
+        </div>
+        <div class="sign" data-q="b-13a zakaz wjazdu z towarami niebezpiecznymi">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/5/56/PL_road_sign_B-13a.svg" alt="B-13a zakaz wjazdu z towarami niebezpiecznymi" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-13a</div>
+          <div class="s-name">zakaz wjazdu z towarami niebezpiecznymi</div>
+        </div>
+        <div class="sign" data-q="b-14 zakaz wjazdu z towarami, które mogą skazić wodę">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/PL_road_sign_B-14.svg" alt="B-14 zakaz wjazdu z towarami, które mogą skazić wodę" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-14</div>
+          <div class="s-name">zakaz wjazdu z towarami, które mogą skazić wodę</div>
+        </div>
+        <div class="sign" data-q="b-15 zakaz wjazdu pojazdów o szerokości ponad … m">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/PL_road_sign_B-15.svg" alt="B-15 zakaz wjazdu pojazdów o szerokości ponad … m" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-15</div>
+          <div class="s-name">zakaz wjazdu pojazdów o szerokości ponad … m</div>
+          <div class="s-note">Liczy się szerokość <b>razem z ładunkiem</b>.</div>
+        </div>
+        <div class="sign" data-q="b-16 zakaz wjazdu pojazdów o wysokości ponad … m">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/2/24/PL_road_sign_B-16.svg" alt="B-16 zakaz wjazdu pojazdów o wysokości ponad … m" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-16</div>
+          <div class="s-name">zakaz wjazdu pojazdów o wysokości ponad … m</div>
+          <div class="s-note">Razem z ładunkiem, np. rowerami na dachu.</div>
+        </div>
+        <div class="sign" data-q="b-17 zakaz wjazdu pojazdów o długości ponad … m">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/3/36/PL_road_sign_B-17-6m.svg" alt="B-17 zakaz wjazdu pojazdów o długości ponad … m" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-17</div>
+          <div class="s-name">zakaz wjazdu pojazdów o długości ponad … m</div>
+          <div class="s-note">Dla zespołu liczy się długość całego zespołu.</div>
+        </div>
+        <div class="sign" data-q="b-18 zakaz wjazdu pojazdów o rzeczywistej masie całkowitej ponad … t">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/1/16/PL_road_sign_B-18-7t.svg" alt="B-18 zakaz wjazdu pojazdów o rzeczywistej masie całkowitej ponad … t" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-18</div>
+          <div class="s-name">zakaz wjazdu pojazdów o rzeczywistej masie całkowitej ponad … t</div>
+          <div class="s-note"><b>Rzeczywista</b> masa, nie dopuszczalna. Dla zespołu — łączna.</div>
+        </div>
+        <div class="sign" data-q="b-19 zakaz wjazdu pojazdów o nacisku pojedynczej osi napędowej powyżej … t">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/PL_road_sign_B-19-10t.svg" alt="B-19 zakaz wjazdu pojazdów o nacisku pojedynczej osi napędowej powyżej … t" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-19</div>
+          <div class="s-name">zakaz wjazdu pojazdów o nacisku pojedynczej osi napędowej powyżej … t</div>
+        </div>
+        <div class="sign" data-q="b-20 stop">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/7/77/PL_road_sign_B-20.svg" alt="B-20 stop" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-20</div>
+          <div class="s-name">stop</div>
+          <div class="s-note">Zatrzymanie <b>zawsze</b>, nawet gdy droga jest pusta. Potem ustępujesz pierwszeństwa.</div>
+        </div>
+        <div class="sign" data-q="b-21 zakaz skręcania w lewo">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/PL_road_sign_B-21.svg" alt="B-21 zakaz skręcania w lewo" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-21</div>
+          <div class="s-name">zakaz skręcania w lewo</div>
+          <div class="s-note">Zabrania też <b>zawracania</b>. Obowiązuje na najbliższym skrzyżowaniu.</div>
+        </div>
+        <div class="sign" data-q="b-22 zakaz skręcania w prawo">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/PL_road_sign_B-22.svg" alt="B-22 zakaz skręcania w prawo" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-22</div>
+          <div class="s-name">zakaz skręcania w prawo</div>
+          <div class="s-note">Na najbliższym skrzyżowaniu.</div>
+        </div>
+        <div class="sign" data-q="b-23 zakaz zawracania">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/9/99/PL_road_sign_B-23.svg" alt="B-23 zakaz zawracania" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-23</div>
+          <div class="s-name">zakaz zawracania</div>
+          <div class="s-note">Do najbliższego skrzyżowania <b>włącznie</b>. Skręt w lewo wolno.</div>
+        </div>
+        <div class="sign" data-q="b-24 koniec zakazu zawracania">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/PL_road_sign_B-24.svg" alt="B-24 koniec zakazu zawracania" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-24</div>
+          <div class="s-name">koniec zakazu zawracania</div>
+          <div class="s-note">Odwołuje B-23 jeszcze przed skrzyżowaniem.</div>
+        </div>
+        <div class="sign" data-q="b-25 zakaz wyprzedzania">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/PL_road_sign_B-25.svg" alt="B-25 zakaz wyprzedzania" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-25</div>
+          <div class="s-name">zakaz wyprzedzania</div>
+          <div class="s-note">Zakaz wyprzedzania pojazdów silnikowych <b>wielośladowych</b>. Motocykl, rower, motorower — wolno.</div>
+        </div>
+        <div class="sign" data-q="b-26 zakaz wyprzedzania przez samochody ciężarowe">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/PL_road_sign_B-26.svg" alt="B-26 zakaz wyprzedzania przez samochody ciężarowe" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-26</div>
+          <div class="s-name">zakaz wyprzedzania przez samochody ciężarowe</div>
+          <div class="s-note">Dotyczy ciężarowych ponad 3,5 t i ciągników samochodowych. Ciebie nie.</div>
+        </div>
+        <div class="sign" data-q="b-27 koniec zakazu wyprzedzania">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/PL_road_sign_B-27.svg" alt="B-27 koniec zakazu wyprzedzania" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-27</div>
+          <div class="s-name">koniec zakazu wyprzedzania</div>
+        </div>
+        <div class="sign" data-q="b-28 koniec zakazu wyprzedzania przez samochody ciężarowe">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/PL_road_sign_B-28.svg" alt="B-28 koniec zakazu wyprzedzania przez samochody ciężarowe" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-28</div>
+          <div class="s-name">koniec zakazu wyprzedzania przez samochody ciężarowe</div>
+        </div>
+        <div class="sign" data-q="b-29 zakaz używania sygnałów dźwiękowych">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/PL_road_sign_B-29.svg" alt="B-29 zakaz używania sygnałów dźwiękowych" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-29</div>
+          <div class="s-name">zakaz używania sygnałów dźwiękowych</div>
+          <div class="s-note">Chyba że ostrzegasz przed bezpośrednim niebezpieczeństwem.</div>
+        </div>
+        <div class="sign" data-q="b-30 koniec zakazu używania sygnałów dźwiękowych">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/PL_road_sign_B-30.svg" alt="B-30 koniec zakazu używania sygnałów dźwiękowych" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-30</div>
+          <div class="s-name">koniec zakazu używania sygnałów dźwiękowych</div>
+        </div>
+        <div class="sign" data-q="b-31 pierwszeństwo dla nadjeżdżających z przeciwka">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/PL_road_sign_B-31.svg" alt="B-31 pierwszeństwo dla nadjeżdżających z przeciwka" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-31</div>
+          <div class="s-name">pierwszeństwo dla nadjeżdżających z przeciwka</div>
+          <div class="s-note">Na zwężeniu przepuszczasz jadących z naprzeciwka. Przeciwieństwo D-5.</div>
+        </div>
+        <div class="sign" data-q="b-32 stój – kontrola celna">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/2/23/PL_road_sign_B-32.svg" alt="B-32 stój – kontrola celna" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-32</div>
+          <div class="s-name">stój – kontrola celna</div>
+          <div class="s-note">Też z napisem „Kontrola drogowa”, „Pobór opłat”, „Wjazd na prom”. Zatrzymujesz się przed znakiem.</div>
+        </div>
+        <div class="sign" data-q="b-33 ograniczenie prędkości">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/5/52/PL_road_sign_B-33-50.svg" alt="B-33 ograniczenie prędkości" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-33</div>
+          <div class="s-name">ograniczenie prędkości</div>
+          <div class="s-note">Obowiązuje do: innego B-33 lub B-43, B-34, B-42, D-40, D-42/D-43 albo <b>najbliższego skrzyżowania</b>.</div>
+        </div>
+        <div class="sign" data-q="b-34 koniec ograniczenia prędkości">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/PL_road_sign_B-34-50.svg" alt="B-34 koniec ograniczenia prędkości" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-34</div>
+          <div class="s-name">koniec ograniczenia prędkości</div>
+        </div>
+        <div class="sign" data-q="b-35 zakaz postoju">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/PL_road_sign_B-35.svg" alt="B-35 zakaz postoju" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-35</div>
+          <div class="s-name">zakaz postoju</div>
+          <div class="s-note">Zatrzymać się do 1 minuty wolno. Tylko po tej stronie drogi, po której stoi znak.</div>
+        </div>
+        <div class="sign" data-q="b-36 zakaz zatrzymywania się">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/3/38/PL_road_sign_B-36.svg" alt="B-36 zakaz zatrzymywania się" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-36</div>
+          <div class="s-name">zakaz zatrzymywania się</div>
+          <div class="s-note">Nawet na chwilę. Po tej stronie drogi, do skrzyżowania, odwołania albo B-35.</div>
+        </div>
+        <div class="sign" data-q="b-37 zakaz postoju w dni nieparzyste">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/PL_road_sign_B-37.svg" alt="B-37 zakaz postoju w dni nieparzyste" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-37</div>
+          <div class="s-name">zakaz postoju w dni nieparzyste</div>
+          <div class="s-note">Nie obowiązuje od 21:00 do 24:00.</div>
+        </div>
+        <div class="sign" data-q="b-38 zakaz postoju w dni parzyste">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/PL_road_sign_B-38.svg" alt="B-38 zakaz postoju w dni parzyste" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-38</div>
+          <div class="s-name">zakaz postoju w dni parzyste</div>
+          <div class="s-note">Nie obowiązuje od 21:00 do 24:00.</div>
+        </div>
+        <div class="sign" data-q="b-39 strefa ograniczonego postoju">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/PL_road_sign_B-39.svg" alt="B-39 strefa ograniczonego postoju" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-39</div>
+          <div class="s-name">strefa ograniczonego postoju</div>
+          <div class="s-note">Zakaz postoju na wszystkich drogach strefy, poza miejscami oznaczonymi D-18 i D-44.</div>
+        </div>
+        <div class="sign" data-q="b-40 koniec strefy ograniczonego postoju">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/PL_road_sign_B-40.svg" alt="B-40 koniec strefy ograniczonego postoju" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-40</div>
+          <div class="s-name">koniec strefy ograniczonego postoju</div>
+        </div>
+        <div class="sign" data-q="b-41 zakaz ruchu pieszych">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/PL_road_sign_B-41.svg" alt="B-41 zakaz ruchu pieszych" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-41</div>
+          <div class="s-name">zakaz ruchu pieszych</div>
+          <div class="s-note">Po tej stronie drogi, po której stoi znak.</div>
+        </div>
+        <div class="sign" data-q="b-42 koniec zakazów">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/PL_road_sign_B-42.svg" alt="B-42 koniec zakazów" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-42</div>
+          <div class="s-name">koniec zakazów</div>
+          <div class="s-note">Odwołuje <b>B-23, B-25, B-26, B-29 i B-33</b>. Nie odwołuje zakazu postoju ani zatrzymywania.</div>
+        </div>
+        <div class="sign" data-q="b-43 strefa ograniczonej prędkości">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/PL_road_sign_B-43-30.svg" alt="B-43 strefa ograniczonej prędkości" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-43</div>
+          <div class="s-name">strefa ograniczonej prędkości</div>
+          <div class="s-note">Cała strefa, nie odcinek. Przy ≤ 30 km/h progi mogą nie mieć znaków ostrzegawczych.</div>
+        </div>
+        <div class="sign" data-q="b-44 koniec strefy ograniczonej prędkości">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/2/28/PL_road_sign_B-44-30.svg" alt="B-44 koniec strefy ograniczonej prędkości" loading="lazy" decoding="async"></div>
+          <div class="s-code">B-44</div>
+          <div class="s-name">koniec strefy ograniczonej prędkości</div>
+        </div>
+    </div>
+
+    <h3 class="group">C · nakazu</h3>
+    <div class="signs">
+        <div class="sign" data-q="c-1 nakaz jazdy w prawo przed znakiem">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/3/37/PL_road_sign_C-1.svg" alt="C-1 nakaz jazdy w prawo przed znakiem" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-1</div>
+          <div class="s-name">nakaz jazdy w prawo przed znakiem</div>
+        </div>
+        <div class="sign" data-q="c-2 nakaz jazdy w prawo za znakiem">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/7/73/PL_road_sign_C-2.svg" alt="C-2 nakaz jazdy w prawo za znakiem" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-2</div>
+          <div class="s-name">nakaz jazdy w prawo za znakiem</div>
+        </div>
+        <div class="sign" data-q="c-3 nakaz jazdy w lewo przed znakiem">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/PL_road_sign_C-3.svg" alt="C-3 nakaz jazdy w lewo przed znakiem" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-3</div>
+          <div class="s-name">nakaz jazdy w lewo przed znakiem</div>
+        </div>
+        <div class="sign" data-q="c-4 nakaz jazdy w lewo za znakiem">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/PL_road_sign_C-4.svg" alt="C-4 nakaz jazdy w lewo za znakiem" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-4</div>
+          <div class="s-name">nakaz jazdy w lewo za znakiem</div>
+        </div>
+        <div class="sign" data-q="c-5 nakaz jazdy prosto">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/PL_road_sign_C-5.svg" alt="C-5 nakaz jazdy prosto" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-5</div>
+          <div class="s-name">nakaz jazdy prosto</div>
+        </div>
+        <div class="sign" data-q="c-6 nakaz jazdy prosto lub w prawo">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/5/58/PL_road_sign_C-6.svg" alt="C-6 nakaz jazdy prosto lub w prawo" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-6</div>
+          <div class="s-name">nakaz jazdy prosto lub w prawo</div>
+        </div>
+        <div class="sign" data-q="c-7 nakaz jazdy prosto lub w lewo">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/4/47/PL_road_sign_C-7.svg" alt="C-7 nakaz jazdy prosto lub w lewo" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-7</div>
+          <div class="s-name">nakaz jazdy prosto lub w lewo</div>
+        </div>
+        <div class="sign" data-q="c-8 nakaz jazdy w prawo lub w lewo">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/PL_road_sign_C-8.svg" alt="C-8 nakaz jazdy w prawo lub w lewo" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-8</div>
+          <div class="s-name">nakaz jazdy w prawo lub w lewo</div>
+        </div>
+        <div class="sign" data-q="c-9 nakaz jazdy z prawej strony znaku">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/PL_road_sign_C-9.svg" alt="C-9 nakaz jazdy z prawej strony znaku" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-9</div>
+          <div class="s-name">nakaz jazdy z prawej strony znaku</div>
+          <div class="s-note">Typowo na wysepce.</div>
+        </div>
+        <div class="sign" data-q="c-10 nakaz jazdy z lewej strony znaku">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/0/02/PL_road_sign_C-10.svg" alt="C-10 nakaz jazdy z lewej strony znaku" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-10</div>
+          <div class="s-name">nakaz jazdy z lewej strony znaku</div>
+        </div>
+        <div class="sign" data-q="c-11 nakaz jazdy z prawej lub lewej strony znaku">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/PL_road_sign_C-11.svg" alt="C-11 nakaz jazdy z prawej lub lewej strony znaku" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-11</div>
+          <div class="s-name">nakaz jazdy z prawej lub lewej strony znaku</div>
+        </div>
+        <div class="sign" data-q="c-12 ruch okrężny">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/PL_road_sign_C-12.svg" alt="C-12 ruch okrężny" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-12</div>
+          <div class="s-name">ruch okrężny</div>
+          <div class="s-note">Z A-7 — pierwszeństwo ma <b>ten na rondzie</b>. Bez A-7 — prawa ręka, czyli wjeżdżający.</div>
+        </div>
+        <div class="sign" data-q="c-13 droga dla rowerów">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/3/30/PL_road_sign_C-13.svg" alt="C-13 droga dla rowerów" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-13</div>
+          <div class="s-name">droga dla rowerów</div>
+          <div class="s-note">Rowerzysta musi z niej korzystać.</div>
+        </div>
+        <div class="sign" data-q="c-13a koniec drogi dla rowerów">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/1/14/PL_road_sign_C-13a.svg" alt="C-13a koniec drogi dla rowerów" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-13a</div>
+          <div class="s-name">koniec drogi dla rowerów</div>
+        </div>
+        <div class="sign" data-q="c-13/c-16 droga dla pieszych i rowerów">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/PL_road_sign_C-13-16.svg" alt="C-13/C-16 droga dla pieszych i rowerów" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-13/C-16</div>
+          <div class="s-name">droga dla pieszych i rowerów</div>
+          <div class="s-note">Kreska <b>pozioma</b> — wspólna powierzchnia. Kreska pionowa — obie drogi obok siebie.</div>
+        </div>
+        <div class="sign" data-q="c-13/c-16 (pionowa) droga dla rowerów i pieszych obok siebie">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/PL_road_sign_C-13-16a.svg" alt="C-13/C-16 (pionowa) droga dla rowerów i pieszych obok siebie" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-13/C-16 (pionowa)</div>
+          <div class="s-name">droga dla rowerów i pieszych obok siebie</div>
+          <div class="s-note">Każdy po swojej stronie, jak na znaku.</div>
+        </div>
+        <div class="sign" data-q="c-14 prędkość minimalna">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/PL_road_sign_C-14.svg" alt="C-14 prędkość minimalna" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-14</div>
+          <div class="s-name">prędkość minimalna</div>
+          <div class="s-note">Nie wolno jechać wolniej, chyba że wymagają tego warunki.</div>
+        </div>
+        <div class="sign" data-q="c-15 koniec minimalnej prędkości">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/1/14/PL_road_sign_C-15.svg" alt="C-15 koniec minimalnej prędkości" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-15</div>
+          <div class="s-name">koniec minimalnej prędkości</div>
+        </div>
+        <div class="sign" data-q="c-16 droga dla pieszych">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/PL_road_sign_C-16.svg" alt="C-16 droga dla pieszych" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-16</div>
+          <div class="s-name">droga dla pieszych</div>
+        </div>
+        <div class="sign" data-q="c-16a koniec drogi dla pieszych">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/PL_road_sign_C-16a.svg" alt="C-16a koniec drogi dla pieszych" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-16a</div>
+          <div class="s-name">koniec drogi dla pieszych</div>
+        </div>
+        <div class="sign" data-q="c-17 nakazany kierunek dla pojazdów z towarami niebezpiecznymi">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/PL_road_sign_C-17-2.svg" alt="C-17 nakazany kierunek dla pojazdów z towarami niebezpiecznymi" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-17</div>
+          <div class="s-name">nakazany kierunek dla pojazdów z towarami niebezpiecznymi</div>
+        </div>
+        <div class="sign" data-q="c-18 nakaz używania łańcuchów przeciwpoślizgowych">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/PL_road_sign_C-18.svg" alt="C-18 nakaz używania łańcuchów przeciwpoślizgowych" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-18</div>
+          <div class="s-name">nakaz używania łańcuchów przeciwpoślizgowych</div>
+          <div class="s-note">Łańcuchy na co najmniej <b>dwóch kołach napędowych</b>.</div>
+        </div>
+        <div class="sign" data-q="c-19 koniec nakazu używania łańcuchów">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/1/13/PL_road_sign_C-19.svg" alt="C-19 koniec nakazu używania łańcuchów" loading="lazy" decoding="async"></div>
+          <div class="s-code">C-19</div>
+          <div class="s-name">koniec nakazu używania łańcuchów</div>
+        </div>
+    </div>
+
+    <h3 class="group">D · informacyjne</h3>
+    <div class="signs">
+        <div class="sign" data-q="d-1 droga z pierwszeństwem">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/PL_road_sign_D-1.svg" alt="D-1 droga z pierwszeństwem" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-1</div>
+          <div class="s-name">droga z pierwszeństwem</div>
+          <div class="s-note">Powtarzany za skrzyżowaniami. Z T-6a pokazuje, że droga z pierwszeństwem skręca.</div>
+        </div>
+        <div class="sign" data-q="d-2 koniec drogi z pierwszeństwem">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/PL_road_sign_D-2.svg" alt="D-2 koniec drogi z pierwszeństwem" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-2</div>
+          <div class="s-name">koniec drogi z pierwszeństwem</div>
+        </div>
+        <div class="sign" data-q="d-3 droga jednokierunkowa">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/64/PL_road_sign_D-3.svg" alt="D-3 droga jednokierunkowa" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-3</div>
+          <div class="s-name">droga jednokierunkowa</div>
+          <div class="s-note">Z tabliczką „nie dotyczy” + rower — rowery jadą w obie strony.</div>
+        </div>
+        <div class="sign" data-q="d-4a droga bez przejazdu">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/PL_road_sign_D-4a.svg" alt="D-4a droga bez przejazdu" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-4a</div>
+          <div class="s-name">droga bez przejazdu</div>
+        </div>
+        <div class="sign" data-q="d-4b wjazd na drogę bez przejazdu">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/a/af/PL_road_sign_D-4b.svg" alt="D-4b wjazd na drogę bez przejazdu" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-4b</div>
+          <div class="s-name">wjazd na drogę bez przejazdu</div>
+          <div class="s-note">Ślepa jest droga za skrzyżowaniem, po wskazanej stronie.</div>
+        </div>
+        <div class="sign" data-q="d-5 pierwszeństwo na zwężonym odcinku jezdni">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/4/45/PL_road_sign_D-5.svg" alt="D-5 pierwszeństwo na zwężonym odcinku jezdni" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-5</div>
+          <div class="s-name">pierwszeństwo na zwężonym odcinku jezdni</div>
+          <div class="s-note">Ty przejeżdżasz pierwszy. Druga strona ma B-31.</div>
+        </div>
+        <div class="sign" data-q="d-6 przejście dla pieszych">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/PL_road_sign_D-6.svg" alt="D-6 przejście dla pieszych" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-6</div>
+          <div class="s-name">przejście dla pieszych</div>
+          <div class="s-note">Zwolnij tak, by nie narazić pieszych na nim i wchodzących.</div>
+        </div>
+        <div class="sign" data-q="d-6a przejazd dla rowerzystów">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/PL_road_sign_D-6a.svg" alt="D-6a przejazd dla rowerzystów" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-6a</div>
+          <div class="s-name">przejazd dla rowerzystów</div>
+        </div>
+        <div class="sign" data-q="d-6b przejście dla pieszych i przejazd dla rowerzystów">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/PL_road_sign_D-6b.svg" alt="D-6b przejście dla pieszych i przejazd dla rowerzystów" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-6b</div>
+          <div class="s-name">przejście dla pieszych i przejazd dla rowerzystów</div>
+        </div>
+        <div class="sign" data-q="d-7 droga ekspresowa">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/PL_road_sign_D-7.svg" alt="D-7 droga ekspresowa" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-7</div>
+          <div class="s-name">droga ekspresowa</div>
+          <div class="s-note">120 km/h dwujezdniowa, 100 km/h jednojezdniowa.</div>
+        </div>
+        <div class="sign" data-q="d-8 koniec drogi ekspresowej">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/PL_road_sign_D-8.svg" alt="D-8 koniec drogi ekspresowej" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-8</div>
+          <div class="s-name">koniec drogi ekspresowej</div>
+        </div>
+        <div class="sign" data-q="d-9 autostrada">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/PL_road_sign_D-9.svg" alt="D-9 autostrada" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-9</div>
+          <div class="s-name">autostrada</div>
+          <div class="s-note">140 km/h. Z T-28 — przejazd płatny.</div>
+        </div>
+        <div class="sign" data-q="d-10 koniec autostrady">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/PL_road_sign_D-10.svg" alt="D-10 koniec autostrady" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-10</div>
+          <div class="s-name">koniec autostrady</div>
+        </div>
+        <div class="sign" data-q="d-11 początek pasa ruchu dla autobusów">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/2/28/PL_road_sign_D-11.svg" alt="D-11 początek pasa ruchu dla autobusów" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-11</div>
+          <div class="s-name">początek pasa ruchu dla autobusów</div>
+          <div class="s-note">Pas dla autobusów, trolejbusów i linii regularnych. Symbol na znaku dopuszcza inne pojazdy.</div>
+        </div>
+        <div class="sign" data-q="d-13 początek pasa ruchu powolnego">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/PL_road_sign_D-13.svg" alt="D-13 początek pasa ruchu powolnego" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-13</div>
+          <div class="s-name">początek pasa ruchu powolnego</div>
+          <div class="s-note">Musi z niego korzystać ten, kto nie osiąga na wzniesieniu prędkości ze znaku.</div>
+        </div>
+        <div class="sign" data-q="d-13a początek pasa ruchu">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/0/02/PL_road_sign_D-13a.svg" alt="D-13a początek pasa ruchu" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-13a</div>
+          <div class="s-name">początek pasa ruchu</div>
+        </div>
+        <div class="sign" data-q="d-14 koniec pasa ruchu">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/5/50/PL_road_sign_D-14.svg" alt="D-14 koniec pasa ruchu" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-14</div>
+          <div class="s-name">koniec pasa ruchu</div>
+        </div>
+        <div class="sign" data-q="d-15 przystanek autobusowy">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/PL_road_sign_D-15.svg" alt="D-15 przystanek autobusowy" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-15</div>
+          <div class="s-name">przystanek autobusowy</div>
+          <div class="s-note">Zakaz zatrzymania bliżej niż 15 m od znaku.</div>
+        </div>
+        <div class="sign" data-q="d-17 przystanek tramwajowy">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/63/PL_road_sign_D-17.svg" alt="D-17 przystanek tramwajowy" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-17</div>
+          <div class="s-name">przystanek tramwajowy</div>
+        </div>
+        <div class="sign" data-q="d-18 parking">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/PL_road_sign_D-18.svg" alt="D-18 parking" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-18</div>
+          <div class="s-name">parking</div>
+          <div class="s-note">Bez przyczep kempingowych — chyba że jest tabliczka z przyczepą kempingową.</div>
+        </div>
+        <div class="sign" data-q="d-18a parking – miejsce zastrzeżone">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/PL_road_sign_D-18a.svg" alt="D-18a parking – miejsce zastrzeżone" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-18a</div>
+          <div class="s-name">parking – miejsce zastrzeżone</div>
+          <div class="s-note">Tylko dla uprawnionej osoby.</div>
+        </div>
+        <div class="sign" data-q="d-19 postój taksówek">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/PL_road_sign_D-19.svg" alt="D-19 postój taksówek" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-19</div>
+          <div class="s-name">postój taksówek</div>
+          <div class="s-note">Do znaku D-20 albo 20 m od znaku.</div>
+        </div>
+        <div class="sign" data-q="d-23 stacja paliwowa">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/PL_road_sign_D-23.svg" alt="D-23 stacja paliwowa" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-23</div>
+          <div class="s-name">stacja paliwowa</div>
+        </div>
+        <div class="sign" data-q="d-37 tunel">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/3/30/PL_road_sign_D-37.svg" alt="D-37 tunel" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-37</div>
+          <div class="s-name">tunel</div>
+          <div class="s-note">Długość pod spodem, gdy tunel ma ponad 500 m.</div>
+        </div>
+        <div class="sign" data-q="d-38 koniec tunelu">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/PL_road_sign_D-38.svg" alt="D-38 koniec tunelu" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-38</div>
+          <div class="s-name">koniec tunelu</div>
+        </div>
+        <div class="sign" data-q="d-40 strefa zamieszkania">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/4/45/PL_road_sign_D-40.svg" alt="D-40 strefa zamieszkania" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-40</div>
+          <div class="s-name">strefa zamieszkania</div>
+          <div class="s-note">20 km/h, pieszy ma pierwszeństwo, parkujesz tylko w wyznaczonych miejscach. Wyjazd ze strefy = włączanie się do ruchu.</div>
+        </div>
+        <div class="sign" data-q="d-41 koniec strefy zamieszkania">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/PL_road_sign_D-41.svg" alt="D-41 koniec strefy zamieszkania" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-41</div>
+          <div class="s-name">koniec strefy zamieszkania</div>
+        </div>
+        <div class="sign" data-q="d-42 obszar zabudowany">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/63/PL_road_sign_D-42.svg" alt="D-42 obszar zabudowany" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-42</div>
+          <div class="s-name">obszar zabudowany</div>
+          <div class="s-note">Biała tablica z sylwetkami budynków. 50 km/h przez całą dobę.</div>
+        </div>
+        <div class="sign" data-q="d-43 koniec obszaru zabudowanego">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/PL_road_sign_D-43.svg" alt="D-43 koniec obszaru zabudowanego" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-43</div>
+          <div class="s-name">koniec obszaru zabudowanego</div>
+        </div>
+        <div class="sign" data-q="d-44 strefa płatnego parkowania">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/PL_road_sign_D-44.svg" alt="D-44 strefa płatnego parkowania" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-44</div>
+          <div class="s-name">strefa płatnego parkowania</div>
+        </div>
+        <div class="sign" data-q="d-45 koniec strefy płatnego parkowania">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/PL_road_sign_D-45.svg" alt="D-45 koniec strefy płatnego parkowania" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-45</div>
+          <div class="s-name">koniec strefy płatnego parkowania</div>
+        </div>
+        <div class="sign" data-q="d-46 droga wewnętrzna">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/PL_road_sign_D-46.svg" alt="D-46 droga wewnętrzna" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-46</div>
+          <div class="s-name">droga wewnętrzna</div>
+          <div class="s-note">Wyjazd z niej na drogę publiczną = włączanie się do ruchu.</div>
+        </div>
+        <div class="sign" data-q="d-47 koniec drogi wewnętrznej">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/0/07/PL_road_sign_D-47.svg" alt="D-47 koniec drogi wewnętrznej" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-47</div>
+          <div class="s-name">koniec drogi wewnętrznej</div>
+        </div>
+        <div class="sign" data-q="d-48 zmiana pierwszeństwa">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/PL_road_sign_D-48.svg" alt="D-48 zmiana pierwszeństwa" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-48</div>
+          <div class="s-name">zmiana pierwszeństwa</div>
+          <div class="s-note">Uprzedza, że na najbliższym skrzyżowaniu zmieniły się zasady.</div>
+        </div>
+        <div class="sign" data-q="d-50 zatoka">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/a/af/PL_road_sign_D-50.svg" alt="D-50 zatoka" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-50</div>
+          <div class="s-name">zatoka</div>
+          <div class="s-note">Miejsce na zatrzymanie przy awarii, np. w tunelu.</div>
+        </div>
+        <div class="sign" data-q="d-51 automatyczna kontrola prędkości">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/PL_road_sign_D-51.svg" alt="D-51 automatyczna kontrola prędkości" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-51</div>
+          <div class="s-name">automatyczna kontrola prędkości</div>
+        </div>
+        <div class="sign" data-q="d-52 strefa ruchu">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/PL_road_sign_D-52.svg" alt="D-52 strefa ruchu" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-52</div>
+          <div class="s-name">strefa ruchu</div>
+          <div class="s-note">Droga wewnętrzna, na której obowiązują przepisy ruchu drogowego.</div>
+        </div>
+        <div class="sign" data-q="d-53 koniec strefy ruchu">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/7/70/PL_road_sign_D-53.svg" alt="D-53 koniec strefy ruchu" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-53</div>
+          <div class="s-name">koniec strefy ruchu</div>
+        </div>
+        <div class="sign" data-q="d-54 strefa czystego transportu">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/PL_road_sign_D-54.svg" alt="D-54 strefa czystego transportu" loading="lazy" decoding="async"></div>
+          <div class="s-code">D-54</div>
+          <div class="s-name">strefa czystego transportu</div>
+        </div>
+    </div>
+
+    <h3 class="group">F, G, T · uzupełniające, przed przejazdem, tabliczki</h3>
+    <div class="signs">
+        <div class="sign" data-q="f-5 uprzedzenie o zakazie">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/PL_road_sign_F-5.svg" alt="F-5 uprzedzenie o zakazie" loading="lazy" decoding="async"></div>
+          <div class="s-code">F-5</div>
+          <div class="s-name">uprzedzenie o zakazie</div>
+          <div class="s-note">Zakaz zaczyna się dalej, w podanej odległości.</div>
+        </div>
+        <div class="sign" data-q="f-6 znak uprzedzający przed skrzyżowaniem">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/PL_road_sign_F-6.svg" alt="F-6 znak uprzedzający przed skrzyżowaniem" loading="lazy" decoding="async"></div>
+          <div class="s-code">F-6</div>
+          <div class="s-name">znak uprzedzający przed skrzyżowaniem</div>
+          <div class="s-note">Pokazuje, co czeka za skrzyżowaniem na wskazanej drodze.</div>
+        </div>
+        <div class="sign" data-q="f-7 sposób jazdy przy zakazie skręcania w lewo">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/PL_road_sign_F-7.svg" alt="F-7 sposób jazdy przy zakazie skręcania w lewo" loading="lazy" decoding="async"></div>
+          <div class="s-code">F-7</div>
+          <div class="s-name">sposób jazdy przy zakazie skręcania w lewo</div>
+        </div>
+        <div class="sign" data-q="f-8 objazd w związku z zamknięciem drogi">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/1/16/PL_road_sign_F-8.svg" alt="F-8 objazd w związku z zamknięciem drogi" loading="lazy" decoding="async"></div>
+          <div class="s-code">F-8</div>
+          <div class="s-name">objazd w związku z zamknięciem drogi</div>
+        </div>
+        <div class="sign" data-q="f-10 kierunki na pasach ruchu">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/1/19/PL_road_sign_F-10.svg" alt="F-10 kierunki na pasach ruchu" loading="lazy" decoding="async"></div>
+          <div class="s-code">F-10</div>
+          <div class="s-name">kierunki na pasach ruchu</div>
+          <div class="s-note">Strzałka w lewo na skrajnym lewym pasie pozwala też <b>zawracać</b>, chyba że stoi B-23 albo jest sygnalizator S-3.</div>
+        </div>
+        <div class="sign" data-q="f-14a 300 m do pasa wyłączania">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/64/PL_road_sign_F-14a.svg" alt="F-14a 300 m do pasa wyłączania" loading="lazy" decoding="async"></div>
+          <div class="s-code">F-14a</div>
+          <div class="s-name">300 m do pasa wyłączania</div>
+          <div class="s-note">Trzy kreski. F-14b — 200 m, F-14c — 100 m.</div>
+        </div>
+        <div class="sign" data-q="f-16 koniec pasa ruchu na jezdni dwukierunkowej">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/PL_road_sign_F-16.svg" alt="F-16 koniec pasa ruchu na jezdni dwukierunkowej" loading="lazy" decoding="async"></div>
+          <div class="s-code">F-16</div>
+          <div class="s-name">koniec pasa ruchu na jezdni dwukierunkowej</div>
+        </div>
+        <div class="sign" data-q="f-19 pas ruchu dla określonych pojazdów">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/1/13/PL_road_sign_F-19.svg" alt="F-19 pas ruchu dla określonych pojazdów" loading="lazy" decoding="async"></div>
+          <div class="s-code">F-19</div>
+          <div class="s-name">pas ruchu dla określonych pojazdów</div>
+        </div>
+        <div class="sign" data-q="f-21 ruch skierowany na sąsiednią jezdnię">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/0/03/PL_road_sign_F-21.svg" alt="F-21 ruch skierowany na sąsiednią jezdnię" loading="lazy" decoding="async"></div>
+          <div class="s-code">F-21</div>
+          <div class="s-name">ruch skierowany na sąsiednią jezdnię</div>
+        </div>
+        <div class="sign" data-q="f-22 ograniczenia na pasie ruchu">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/PL_road_sign_F-22.svg" alt="F-22 ograniczenia na pasie ruchu" loading="lazy" decoding="async"></div>
+          <div class="s-code">F-22</div>
+          <div class="s-name">ograniczenia na pasie ruchu</div>
+        </div>
+        <div class="sign" data-q="g-1a słupek wskaźnikowy z trzema kreskami">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/PL_road_sign_G-1a.svg" alt="G-1a słupek wskaźnikowy z trzema kreskami" loading="lazy" decoding="async"></div>
+          <div class="s-code">G-1a</div>
+          <div class="s-name">słupek wskaźnikowy z trzema kreskami</div>
+          <div class="s-note">Stoi pod A-9 / A-10. Dwie kreski — 2/3 drogi do przejazdu, jedna kreska — 1/3.</div>
+        </div>
+        <div class="sign" data-q="g-1c słupek wskaźnikowy z jedną kreską">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/PL_road_sign_G-1c.svg" alt="G-1c słupek wskaźnikowy z jedną kreską" loading="lazy" decoding="async"></div>
+          <div class="s-code">G-1c</div>
+          <div class="s-name">słupek wskaźnikowy z jedną kreską</div>
+          <div class="s-note">Od niego do przejazdu nie wolno parkować.</div>
+        </div>
+        <div class="sign" data-q="g-2 sieć pod napięciem">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/PL_road_sign_G-2.svg" alt="G-2 sieć pod napięciem" loading="lazy" decoding="async"></div>
+          <div class="s-code">G-2</div>
+          <div class="s-name">sieć pod napięciem</div>
+          <div class="s-note">Nad przejazdem wisi sieć trakcyjna.</div>
+        </div>
+        <div class="sign" data-q="g-3 krzyż św. andrzeja – przejazd jednotorowy">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/PL_road_sign_G-3.svg" alt="G-3 krzyż św. Andrzeja – przejazd jednotorowy" loading="lazy" decoding="async"></div>
+          <div class="s-code">G-3</div>
+          <div class="s-name">krzyż św. Andrzeja – przejazd jednotorowy</div>
+          <div class="s-note">Miejsce zatrzymania przed przejazdem bez zapór.</div>
+        </div>
+        <div class="sign" data-q="g-4 krzyż św. andrzeja – przejazd wielotorowy">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/PL_road_sign_G-4.svg" alt="G-4 krzyż św. Andrzeja – przejazd wielotorowy" loading="lazy" decoding="async"></div>
+          <div class="s-code">G-4</div>
+          <div class="s-name">krzyż św. Andrzeja – przejazd wielotorowy</div>
+        </div>
+        <div class="sign" data-q="t-1 odległość do miejsca niebezpiecznego">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/PL_road_sign_T-1.svg" alt="T-1 odległość do miejsca niebezpiecznego" loading="lazy" decoding="async"></div>
+          <div class="s-code">T-1</div>
+          <div class="s-name">odległość do miejsca niebezpiecznego</div>
+          <div class="s-note">Pod znakiem ostrzegawczym.</div>
+        </div>
+        <div class="sign" data-q="t-2 długość niebezpiecznego odcinka">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/PL_road_sign_T-2.svg" alt="T-2 długość niebezpiecznego odcinka" loading="lazy" decoding="async"></div>
+          <div class="s-code">T-2</div>
+          <div class="s-name">długość niebezpiecznego odcinka</div>
+          <div class="s-note">Gdy odcinek ma ponad 500 m.</div>
+        </div>
+        <div class="sign" data-q="t-6a przebieg drogi z pierwszeństwem">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/PL_road_sign_T-6a.svg" alt="T-6a przebieg drogi z pierwszeństwem" loading="lazy" decoding="async"></div>
+          <div class="s-code">T-6a</div>
+          <div class="s-name">przebieg drogi z pierwszeństwem</div>
+          <div class="s-note">Pod D-1. Grubsza linia = droga z pierwszeństwem.</div>
+        </div>
+        <div class="sign" data-q="t-6c przebieg drogi z pierwszeństwem">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/PL_road_sign_T-6c.svg" alt="T-6c przebieg drogi z pierwszeństwem" loading="lazy" decoding="async"></div>
+          <div class="s-code">T-6c</div>
+          <div class="s-name">przebieg drogi z pierwszeństwem</div>
+          <div class="s-note">Pod A-7 lub B-20.</div>
+        </div>
+        <div class="sign" data-q="t-20 długość odcinka, na którym obowiązuje zakaz">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/PL_road_sign_T-20.svg" alt="T-20 długość odcinka, na którym obowiązuje zakaz" loading="lazy" decoding="async"></div>
+          <div class="s-code">T-20</div>
+          <div class="s-name">długość odcinka, na którym obowiązuje zakaz</div>
+        </div>
+        <div class="sign" data-q="t-21 odległość do miejsca, od którego obowiązuje zakaz">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/PL_road_sign_T-21.svg" alt="T-21 odległość do miejsca, od którego obowiązuje zakaz" loading="lazy" decoding="async"></div>
+          <div class="s-code">T-21</div>
+          <div class="s-name">odległość do miejsca, od którego obowiązuje zakaz</div>
+        </div>
+        <div class="sign" data-q="t-23a tabliczka z symbolem pojazdu">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/PL_road_sign_T-23a.svg" alt="T-23a tabliczka z symbolem pojazdu" loading="lazy" decoding="async"></div>
+          <div class="s-code">T-23a</div>
+          <div class="s-name">tabliczka z symbolem pojazdu</div>
+          <div class="s-note">Znak dotyczy tylko pojazdu z tabliczki.</div>
+        </div>
+        <div class="sign" data-q="t-24 usunięcie pojazdu na koszt właściciela">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/PL_road_sign_T-24.svg" alt="T-24 usunięcie pojazdu na koszt właściciela" loading="lazy" decoding="async"></div>
+          <div class="s-code">T-24</div>
+          <div class="s-name">usunięcie pojazdu na koszt właściciela</div>
+          <div class="s-note">Pod B-35 lub B-36.</div>
+        </div>
+        <div class="sign" data-q="t-27 przejście uczęszczane przez dzieci">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/PL_road_sign_T-27.svg" alt="T-27 przejście uczęszczane przez dzieci" loading="lazy" decoding="async"></div>
+          <div class="s-code">T-27</div>
+          <div class="s-name">przejście uczęszczane przez dzieci</div>
+          <div class="s-note">Pod D-6.</div>
+        </div>
+        <div class="sign" data-q="t-29 miejsce dla osoby niepełnosprawnej">
+          <div class="s-img"><img src="https://upload.wikimedia.org/wikipedia/commons/6/69/PL_road_sign_T-29.svg" alt="T-29 miejsce dla osoby niepełnosprawnej" loading="lazy" decoding="async"></div>
+          <div class="s-code">T-29</div>
+          <div class="s-name">miejsce dla osoby niepełnosprawnej</div>
+          <div class="s-note">Pod D-18. Bez karty parkingowej nie wolno zająć nawet części.</div>
+        </div>
+    </div>
+
+    <ul class="rules">
+      <li>Od 2026 r. są też <b>F-23 „środkowy pas wielofunkcyjny”</b> — na takim odcinku nie wolno wyprzedzać, środkowy pas służy tylko do zjazdu i wjazdu — oraz <b>F-24 „zły kierunek”</b>, który ostrzega, że jedziesz pod prąd.</li>
+      <li><b>D-51a / D-51b</b> — początek i koniec odcinkowego pomiaru średniej prędkości.</li>
+      <li>Drogowskazy <b>niebieskie</b> prowadzą po autostradzie i do niej, <b>zielone</b> — po pozostałych drogach.</li>
+      <li>Znak na pojeździe z żółtymi światłami błyskowymi, który pracuje na drodze, obowiązuje jak zwykły znak.</li>
+    </ul>
+  </section>
+
+  <section id="pozioma">
+    <h2>Znaki poziome <span class="tag">linie na jezdni</span></h2>
+    <div class="marks">
+      <div class="mark">
+        <svg viewBox="0 0 120 40" aria-hidden="true"><rect class="asph" width="120" height="40"/><path class="ln" d="M0 20H120" stroke-dasharray="10 14"/></svg>
+        <div><b>P-1 przerywana</b><span>Kreski krótsze od przerw lub równe. Dzieli pasy — wolno przejeżdżać.</span></div>
+      </div>
+      <div class="mark">
+        <svg viewBox="0 0 120 40" aria-hidden="true"><rect class="asph" width="120" height="40"/><path class="ln" d="M0 20H120" stroke-dasharray="24 7"/></svg>
+        <div><b>P-6 ostrzegawcza</b><span>Kreski <b>dłuższe</b> od przerw. Za chwilę ciągła albo miejsce niebezpieczne — kończ wyprzedzanie.</span></div>
+      </div>
+      <div class="mark">
+        <svg viewBox="0 0 120 40" aria-hidden="true"><rect class="asph" width="120" height="40"/><path class="ln" d="M0 20H120"/></svg>
+        <div><b>P-2 ciągła</b><span>Nie wolno jej przekraczać ani na nią najeżdżać.</span></div>
+      </div>
+      <div class="mark">
+        <svg viewBox="0 0 120 40" aria-hidden="true"><rect class="asph" width="120" height="40"/><path class="ln" d="M0 16H120"/><path class="ln" d="M0 24H120" stroke-dasharray="10 14"/></svg>
+        <div><b>P-3 jednostronnie przekraczalna</b><span>Od strony przerywanej wolno, od ciągłej nie. Wyjątek: powrót na swój pas po wyprzedzaniu na jezdni dwukierunkowej.</span></div>
+      </div>
+      <div class="mark">
+        <svg viewBox="0 0 120 40" aria-hidden="true"><rect class="asph" width="120" height="40"/><path class="ln" d="M0 16H120"/><path class="ln" d="M0 24H120"/></svg>
+        <div><b>P-4 podwójna ciągła</b><span>Rozdziela przeciwne kierunki. Absolutny zakaz przekraczania.</span></div>
+      </div>
+      <div class="mark">
+        <svg viewBox="0 0 120 40" aria-hidden="true"><rect class="asph" width="120" height="40"/><path class="ln" d="M0 16H120" stroke-dasharray="10 14"/><path class="ln" d="M0 24H120" stroke-dasharray="10 14"/></svg>
+        <div><b>P-5 podwójna przerywana</b><span>Pas o zmiennym kierunku ruchu, sterowany sygnalizatorem S-4 nad pasem.</span></div>
+      </div>
+      <div class="mark">
+        <svg viewBox="0 0 120 40" aria-hidden="true"><rect class="asph" width="120" height="40"/><path class="ln wide" d="M0 20H120" stroke-dasharray="14 14"/></svg>
+        <div><b>P-1 szeroka</b><span>Kreski równe przerwom. Pas ruchu powolnego, zanikający albo tylko do zjazdu.</span></div>
+      </div>
+      <div class="mark">
+        <svg viewBox="0 0 120 40" aria-hidden="true"><rect class="asph" width="120" height="40"/><path class="ln" d="M0 30H120"/><rect class="shoulder" y="33" width="120" height="7"/></svg>
+        <div><b>P-7b krawędziowa ciągła</b><span>Krawędź jezdni. Samochodem nie wjeżdżasz na pobocze i nie stajesz obok niej. P-7a (przerywana) — wjazd wolno.</span></div>
+      </div>
+      <div class="mark">
+        <svg viewBox="0 0 120 40" aria-hidden="true"><rect class="asph" width="120" height="40"/><rect class="fill" x="56" y="0" width="8" height="40"/></svg>
+        <div><b>P-12 linia zatrzymania</b><span>Gruba ciągła w poprzek. Tu stajesz przy znaku B-20 STOP lub B-32.</span></div>
+      </div>
+      <div class="mark">
+        <svg viewBox="0 0 120 40" aria-hidden="true"><rect class="asph" width="120" height="40"/><path class="fill" d="M52 2h16l-8 9zM52 15h16l-8 9zM52 28h16l-8 9z"/></svg>
+        <div><b>P-13 z trójkątów</b><span>Linia warunkowego zatrzymania przy A-7. Stajesz tu, jeśli musisz ustąpić.</span></div>
+      </div>
+      <div class="mark">
+        <svg viewBox="0 0 120 40" aria-hidden="true"><rect class="asph" width="120" height="40"/><path class="fill" d="M56 1h8v8h-8zM56 16h8v8h-8zM56 31h8v8h-8z"/></svg>
+        <div><b>P-14 z prostokątów</b><span>Warunkowe zatrzymanie: skrzyżowanie równorzędne, przejście, przejazd, sygnalizator.</span></div>
+      </div>
+      <div class="mark">
+        <svg viewBox="0 0 120 40" aria-hidden="true"><rect class="asph" width="120" height="40"/><path class="fill" d="M10 0h8v40h-8zM30 0h8v40h-8zM50 0h8v40h-8zM70 0h8v40h-8zM90 0h8v40h-8z"/></svg>
+        <div><b>P-10 zebra</b><span>Przejście dla pieszych. P-11 — przejazd dla rowerzystów.</span></div>
+      </div>
+      <div class="mark">
+        <svg viewBox="0 0 120 40" aria-hidden="true"><rect class="asph" width="120" height="40"/><path class="ln thin" d="M14 4h92v32H14z"/><path class="ln thin" d="M20 36 40 4M38 36 58 4M56 36 76 4M74 36 94 4M92 36 106 13"/></svg>
+        <div><b>P-21 powierzchnia wyłączona</b><span>Ukośne pasy. Nie wolno na nią wjeżdżać ani na niej stawać.</span></div>
+      </div>
+      <div class="mark">
+        <svg viewBox="0 0 120 40" aria-hidden="true"><rect class="asph" width="120" height="40"/><path class="ln yellow" d="M0 20H120" stroke-dasharray="10 14"/></svg>
+        <div><b>Żółte linie</b><span>Tymczasowe, np. przy robotach. Gdy przeczą białym — obowiązują <b>żółte</b>.</span></div>
+      </div>
+    </div>
+
+    <ul class="rules">
+      <li><b>P-8 strzałki kierunkowe</b> — z pasa wolno jechać tylko tam, gdzie pokazują. Strzałka w lewo na skrajnym lewym pasie pozwala też <b>zawrócić</b>, chyba że stoi B-23 albo ruchem kieruje S-3.</li>
+      <li><b>P-9 strzałka naprowadzająca</b> (ukośna) — nakaz zmiany pasa we wskazaną stronę. Nie dotyczy tych, dla których dalszy odcinek pasa jest przeznaczony.</li>
+      <li><b>P-15</b> trójkąt na jezdni powtarza A-7, <b>P-16</b> napis STOP powtarza B-20.</li>
+      <li><b>P-17 linia przystankowa</b> — zakaz zatrzymania innych pojazdów na całej jej długości.</li>
+      <li><b>P-18</b> stanowisko postojowe, <b>P-19</b> pas postojowy, <b>P-20 „koperta”</b> — miejsce zastrzeżone, <b>P-24</b> — symbol wózka: miejsce dla osoby z niepełnosprawnością.</li>
+      <li><b>P-22 „BUS”</b> — pas dla komunikacji publicznej, <b>P-23</b> rower, <b>P-26</b> piesi, <b>P-25</b> próg zwalniający.</li>
+      <li>Czerwone punktowe odblaski wyznaczają <b>prawą</b> krawędź jezdni.</li>
+      <li>Znak poziomy, który powtarza pionowy, nie tworzy osobnej reguły.</li>
+    </ul>
+  </section>
+
+  <section id="manewry-zakazy">
+    <h2>Wyprzedzanie, omijanie, cofanie <span class="tag">gdzie nie wolno</span></h2>
+    <dl class="gloss gloss-plain">
+      <dt>Wyprzedzanie</dt>
+      <dd>Mijasz kogoś, kto jedzie <b>w tę samą stronę</b>.</dd>
+      <dt>Omijanie</dt>
+      <dd>Mijasz pojazd, który <b>stoi</b>, albo przeszkodę.</dd>
+      <dt>Wymijanie</dt>
+      <dd>Mijasz kogoś, kto jedzie <b>z przeciwka</b>.</dd>
+    </dl>
+
+    <div class="split">
+      <div class="box">
+        <h3>Zakaz wyprzedzania pojazdu silnikowego</h3>
+        <ul class="rules">
+          <li>Przy dojeżdżaniu do <b>wierzchołka wzniesienia</b>.</li>
+          <li>Na <b>zakręcie oznaczonym znakami</b> ostrzegawczymi.</li>
+          <li>Na <b>skrzyżowaniu</b> — oprócz ronda i skrzyżowania z sygnalizacją lub policjantem.</li>
+          <li>Na wzniesieniu i zakręcie wolno, jeśli jezdnia jest jednokierunkowa albo ma wyznaczone pasy i nie wjeżdżasz na pas przeciwny.</li>
+          <li>Na skrzyżowaniu wolno wyprzedzić pojazd, który <b>sygnalizuje skręt</b>, bez wjeżdżania na przeciwny pas.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Zakaz wyprzedzania każdego pojazdu</h3>
+        <ul class="rules">
+          <li>Na <b>przejściu dla pieszych</b> i bezpośrednio przed nim — chyba że ruch jest kierowany.</li>
+          <li>Na <b>przejeździe dla rowerów</b> i bezpośrednio przed nim — tak samo.</li>
+          <li>Na <b>przejeździe kolejowym</b> i bezpośrednio przed nim.</li>
+          <li>Na <b>przejeździe tramwajowym</b> i bezpośrednio przed nim — chyba że ruch jest kierowany.</li>
+          <li>Na obszarze zabudowanym — pojazdu uprzywilejowanego.</li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="rules">
+      <li>Przed wyprzedzaniem sprawdzasz: widoczność i miejsce, czy nikt za Tobą już nie wyprzedza, czy jadący przed Tobą nie zasygnalizował manewru.</li>
+      <li>Wyprzedzasz <b>z lewej</b>. Z prawej tylko: pojazd, który sygnalizuje skręt w lewo; na jezdni jednokierunkowej z pasami; na dwukierunkowej z co najmniej 2 pasami w jedną stronę w mieście albo 3 poza miastem.</li>
+      <li><b>Tramwaj</b> wyprzedzasz z prawej. Z lewej — tylko na jezdni jednokierunkowej albo gdy tory leżą tak, że z prawej się nie da.</li>
+      <li>Ciebie wyprzedzają — <b>nie przyspieszasz</b>, ani w trakcie, ani zaraz po.</li>
+      <li><b>Nie wolno omijać</b> pojazdu, który zatrzymał się, żeby przepuścić pieszego.</li>
+      <li>Przed przejazdem kolejowym nie omijasz czekających, jeśli trzeba by wjechać na przeciwny pas.</li>
+      <li>Pojazd sygnalizujący skręt w lewo omijasz tylko z prawej.</li>
+    </ul>
+
+    <div class="split">
+      <div class="box">
+        <h3>Zawracanie zabronione</h3>
+        <ul class="rules">
+          <li>W tunelu, na moście, wiadukcie.</li>
+          <li>Na drodze jednokierunkowej.</li>
+          <li>Na autostradzie — zawsze.</li>
+          <li>Na drodze ekspresowej — poza skrzyżowaniem i miejscem do tego przeznaczonym.</li>
+          <li>Wszędzie, gdzie zagraża to ruchowi albo go utrudnia.</li>
+          <li>Przy znakach B-21 i B-23.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Cofanie zabronione</h3>
+        <ul class="rules">
+          <li>W tunelu, na moście, wiadukcie.</li>
+          <li>Na autostradzie i drodze ekspresowej.</li>
+          <li>Cofając, ustępujesz <b>wszystkim</b>. Nie widzisz, co jest za autem — prosisz kogoś o pomoc.</li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="rules">
+      <li>Skręcając w prawo, trzymasz się <b>prawej krawędzi</b>. W lewo — <b>środka jezdni</b>, a na jednokierunkowej lewej krawędzi.</li>
+      <li>Kierunkowskaz włączasz <b>zawczasu</b> i wyłączasz zaraz po manewrze.</li>
+      <li>Na drodze dwujezdniowej jedziesz prawą jezdnią. Na jezdni dwukierunkowej z co najmniej czterema pasami — tylko pasami prawej połowy.</li>
+      <li>Klakson w obszarze zabudowanym tylko przy bezpośrednim niebezpieczeństwie. Mrugać „długimi”, jeśli to kogoś oślepi — nie wolno.</li>
+      <li>Nie wjeżdżasz na pas między jezdniami.</li>
+      <li>Przed otwarciem drzwi i wysiadaniem upewniasz się, że nikomu nie zagrażasz.</li>
+    </ul>
+  </section>
+
+  <section id="postoj">
+    <h2>Zatrzymanie i postój <span class="tag">metry i zakazy</span></h2>
+    <div class="split">
+      <div class="box">
+        <h3>Zatrzymanie</h3>
+        <p>Do <span class="num">1 minuty</span> — albo dowolnie długo, gdy stoisz z powodu ruchu: korek, czerwone światło, przepuszczanie pieszego.</p>
+      </div>
+      <div class="box">
+        <h3>Postój</h3>
+        <p>Ponad <span class="num">1 minutę</span>, z własnej woli. Zakaz postoju pozwala zatrzymać się na chwilę, zakaz zatrzymania — nie pozwala w ogóle.</p>
+      </div>
+    </div>
+
+    <div class="scroller">
+      <table>
+        <caption>Zakaz zatrzymania (więc i postoju)</caption>
+        <thead><tr><th>Miejsce</th><th style="text-align:right">Odległość</th></tr></thead>
+        <tbody>
+          <tr><td>Przejazd kolejowy, przejazd tramwajowy, skrzyżowanie</td><td class="v">na nich i &lt; 10 m</td></tr>
+          <tr><td>Przejście dla pieszych, przejazd dla rowerów</td><td class="v">na nich i &lt; 10 m przed</td></tr>
+          <tr><td>… na drodze dwukierunkowej o dwóch pasach ruchu</td><td class="v">także &lt; 10 m za</td></tr>
+          <tr><td>Przystanek — od słupka lub tablicy</td><td class="v">&lt; 15 m</td></tr>
+          <tr><td>Przystanek z zatoką</td><td class="v">cała zatoka</td></tr>
+          <tr><td>Wysepka, gdy z prawej jest tylko jeden pas</td><td class="v">&lt; 15 m od końców</td></tr>
+          <tr><td>Przed znakiem lub sygnalizatorem, jeśli go zasłonisz</td><td class="v">&lt; 10 m</td></tr>
+          <tr><td>Tunel, most, wiadukt</td><td class="v">w ogóle</td></tr>
+          <tr><td>Autostrada, droga ekspresowa — poza wyznaczonymi miejscami</td><td class="v">w ogóle</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="split">
+      <div class="box">
+        <h3>Też zakaz zatrzymania</h3>
+        <ul class="rules">
+          <li>Wzdłuż linii ciągłej, jeśli inni musieliby na nią najechać.</li>
+          <li>Obok linii krawędziowej przerywanej (na jezdni) i obok ciągłej (na jezdni i na poboczu).</li>
+          <li>Przy <b>lewej</b> krawędzi jezdni. Wyjątek: obszar zabudowany, droga jednokierunkowa albo dwukierunkowa o małym ruchu.</li>
+          <li>Na pasie między jezdniami.</li>
+          <li>Na drodze dla rowerów, pasie dla rowerów, w śluzie rowerowej.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Zakaz postoju</h3>
+        <ul class="rules">
+          <li>Tam, gdzie utrudnisz wjazd lub wyjazd — brama, garaż, parking.</li>
+          <li>Tam, gdzie zablokujesz innego prawidłowo zaparkowanego.</li>
+          <li>Przy przejeździe kolejowym, po obu stronach drogi — od przejazdu do <b>słupka z jedną kreską</b>.</li>
+          <li>W strefie zamieszkania — poza wyznaczonymi miejscami.</li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="rules">
+      <li>Stajesz <b>równolegle</b> i jak najbliżej krawędzi jezdni. Poza obszarem zabudowanym na postój zjeżdżasz z jezdni, jeśli to możliwe.</li>
+      <li><b>Chodnik:</b> kołami jednego boku albo przednią osią — tylko auto do <span class="num">2,5 t</span>, gdy chodnik ma co najmniej <span class="num">1,5 m</span> wolnej szerokości dla pieszych i nie ma zakazu.</li>
+      <li>Całym samochodem osobowym na chodniku — tylko przy krawędzi jezdni i z tymi samymi warunkami.</li>
+      <li>Przed odejściem zabezpieczasz auto przed uruchomieniem przez obcą osobę. Nie odchodzisz od auta z pracującym silnikiem.</li>
+      <li>W nocy na nieoświetlonej jezdni stoisz na światłach <b>pozycyjnych</b> lub postojowych. W miejscu oświetlonym albo poza jezdnią i poboczem — możesz zgasić wszystko.</li>
+      <li>W korku powyżej 1 minuty wolno zgasić światła zewnętrzne, jeśli przed Tobą i za Tobą stoją inne auta.</li>
+    </ul>
+
+    <div class="scroller">
+      <table>
+        <caption>Awaria lub wypadek — jak oznaczyć auto</caption>
+        <thead><tr><th>Droga</th><th>Co robisz</th></tr></thead>
+        <tbody>
+          <tr><td>Autostrada, droga ekspresowa</td><td>Zawsze: awaryjne + trójkąt <span class="num">100 m</span> za autem. Auto usuwasz z jezdni.</td></tr>
+          <tr><td>Poza obszarem zabudowanym</td><td>Awaryjne + trójkąt <span class="num">30–50 m</span> za autem — gdy stoisz na jezdni tam, gdzie postój jest zabroniony, albo na poboczu, którego nie widać z daleka.</td></tr>
+          <tr><td>Obszar zabudowany</td><td>Awaryjne — gdy stoisz tam, gdzie zatrzymanie jest zabronione. Trójkąt (za autem lub na nim, najwyżej <span class="num">1 m</span> nad ziemią) tylko wtedy, gdy auto nie ma świateł awaryjnych.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="swiatla">
     <h2>Światła <span class="tag">nazwy i kiedy które</span></h2>
     <div class="split">
       <div class="box">
@@ -562,7 +2164,7 @@
     </ul>
   </section>
 
-  <section>
+  <section id="lampki">
     <h2>Lampki kontrolne <span class="tag">kolor mówi, co robić</span></h2>
     <div class="lamps">
       <div class="lamp red">
@@ -598,7 +2200,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="plyny">
     <h2>Płyny i obsługa <span class="tag">co, kiedy, ile</span></h2>
     <div class="scroller">
       <table>
@@ -640,7 +2242,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="zadanie1">
     <h2>Zadanie nr 1 na placu <span class="tag">co powiedzieć egzaminatorowi</span></h2>
     <p class="lede" style="max-width:none">Zanim ruszysz, sprawdzasz stan techniczny podstawowych elementów pojazdu. Komputer w ośrodku losuje <b>dwa</b> punkty: jeden z grupy „płyny i sygnał”, drugi z grupy „światła zewnętrzne”. Na to zadanie razem z przygotowaniem do jazdy masz <b>maksymalnie 5 minut</b>.</p>
 
@@ -703,7 +2305,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="pasy">
     <h2>Pasy, foteliki, pasażerowie <span class="tag">przewóz osób</span></h2>
     <ul class="rules">
       <li>Pasy zapinają <b>wszyscy</b>, na przednich i tylnych siedzeniach, na <b>wszystkich drogach</b>.</li>
@@ -720,7 +2322,7 @@
     </ul>
   </section>
 
-  <section>
+  <section id="ladunek">
     <h2>Ładunek i przyczepa <span class="tag">wymiary i masy</span></h2>
     <ul class="rules">
       <li>Ładunek zabezpieczasz przed przemieszczeniem, nie może naruszać stateczności pojazdu, zasłaniać świateł, tablic rejestracyjnych ani ograniczać widoczności drogi.</li>
@@ -734,7 +2336,7 @@
     </ul>
   </section>
 
-  <section>
+  <section id="technika">
     <h2>Manewry i technika <span class="tag">jak jechać</span></h2>
     <div class="split">
       <div class="box">
@@ -772,7 +2374,7 @@
     </ul>
   </section>
 
-  <section>
+  <section id="warunki">
     <h2>Trudne warunki <span class="tag">deszcz, mgła, lód</span></h2>
     <ul class="rules">
       <li>Najbardziej śliska jest <b>początkowa faza deszczu</b> — woda podnosi brud i olej z asfaltu.</li>
@@ -786,7 +2388,7 @@
     </ul>
   </section>
 
-  <section>
+  <section id="przejazd">
     <h2>Przejazd kolejowy <span class="tag">i zakazy</span></h2>
     <ul class="rules">
       <li>Podniesione zapory nie zwalniają z obowiązku <b>upewnienia się</b>, czy nie nadjeżdża pociąg.</li>
@@ -799,7 +2401,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="wypadek">
     <h2>Wypadek i pierwsza pomoc <span class="tag">obowiązki</span></h2>
     <div class="split">
       <div class="box">
@@ -833,13 +2435,62 @@
     </ul>
   </section>
 
-  <section>
+  <section id="alkohol">
+    <h2>Alkohol, okres próbny, punkty <span class="tag">stan na 2026</span></h2>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Stan</th><th style="text-align:right">We krwi</th><th style="text-align:right">W wydychanym powietrzu</th></tr></thead>
+        <tbody>
+          <tr><td>Trzeźwy</td><td class="v">&lt; 0,2 ‰</td><td class="v">&lt; 0,1 mg/dm³</td></tr>
+          <tr><td>Stan po użyciu alkoholu — <b>wykroczenie</b></td><td class="v">0,2–0,5 ‰</td><td class="v">0,1–0,25 mg/dm³</td></tr>
+          <tr><td>Stan nietrzeźwości — <b>przestępstwo</b></td><td class="v">&gt; 0,5 ‰</td><td class="v">&gt; 0,25 mg/dm³</td></tr>
+          <tr><td>Kierowca w okresie próbnym — dozwolone</td><td class="v">0,0 ‰</td><td class="v">0,0 mg/dm³</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="rules">
+      <li>Zakaz dotyczy też środków działających podobnie do alkoholu, np. narkotyków i niektórych leków.</li>
+      <li>Nie wolno holować auta prowadzonego przez osobę po alkoholu ani wieźć jej na motocyklu czy rowerze.</li>
+      <li>Kto prowadził po alkoholu, przechodzi badanie lekarskie i psychologiczne oraz kurs reedukacyjny.</li>
+    </ul>
+
+    <div class="split">
+      <div class="box">
+        <h3>Okres próbny — pierwsze prawo jazdy kat. B</h3>
+        <ul class="rules">
+          <li>Trwa <span class="num">2 lata</span> od wydania prawa jazdy.</li>
+          <li>Prawo jazdy zrobione w wieku <b>17 lat</b> — okres próbny <span class="num">3 lata</span>, ale najdłużej do 20. urodzin.</li>
+          <li><b>Zero alkoholu</b> — 0,0 ‰, zamiast zwykłych 0,2 ‰.</li>
+          <li>Ponad <span class="num">12 punktów</span> — obowiązkowe praktyczne szkolenie z zagrożeń w ośrodku doskonalenia techniki jazdy.</li>
+          <li><b>2 wykroczenia</b> przeciwko bezpieczeństwu — okres próbny dłuższy o 2 lata, do tego kurs reedukacyjny i badanie psychologiczne.</li>
+          <li><b>3 wykroczenia</b> albo przestępstwo drogowe — cofnięcie uprawnień.</li>
+          <li>Ponad <span class="num">20 punktów</span> w pierwszym roku — cofnięcie uprawnień.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Kierowca 17-letni</h3>
+        <ul class="rules">
+          <li>Jeździ wyłącznie w Polsce, do 18. urodzin.</li>
+          <li>Przez pierwsze <span class="num">6 miesięcy</span> — tylko z pasażerem na przednim siedzeniu.</li>
+          <li>Pasażer: co najmniej 25 lat, prawo jazdy kat. B od 5 lat bez przerwy, bez zakazu prowadzenia w ostatnich 5 latach, trzeźwy.</li>
+          <li>Do 18. urodzin nie wiezie innych niepełnoletnich bez takiego pasażera i nie przewozi zawodowo ani osób, ani rzeczy.</li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="rules">
+      <li>Punkty: <span class="num">1–15</span> za jedno naruszenie, najwyżej 15 za kilka naraz. Znikają po roku od uprawomocnienia mandatu i zapłaty grzywny.</li>
+      <li>Ponad <span class="num">24 punkty</span> — kurs reedukacyjny i badanie psychologiczne. Ponowne przekroczenie 24 punktów w ciągu 5 lat — cofnięcie uprawnień.</li>
+    </ul>
+  </section>
+
+  <section id="dokumenty">
     <h2>Dokumenty i sankcje <span class="tag">kontrola drogowa</span></h2>
     <ul class="rules">
-      <li>Przekroczenie prędkości o <b>więcej niż 50 km/h w obszarze zabudowanym</b> — policjant zatrzymuje prawo jazdy, starosta wydaje decyzję na <span class="num">3 miesiące</span>. Dokładnie 50 km/h to jeszcze nie to, i poza obszarem zabudowanym też nie.</li>
+      <li>Przekroczenie prędkości o <b>więcej niż 50 km/h</b> w obszarze zabudowanym <b>albo na jednojezdniowej drodze dwukierunkowej poza nim</b> — policjant zatrzymuje prawo jazdy, starosta wydaje decyzję na <span class="num">3 miesiące</span>. Dokładnie 50 km/h to jeszcze nie to. Na autostradzie i drodze dwujezdniowej ta reguła nie działa. Od 3 marca 2026 r.</li>
       <li>Pokwitowanie zatrzymania prawa jazdy pozwala jechać jeszcze przez <span class="num">24 godziny</span>.</li>
-      <li>Jazda mimo przedłużenia zatrzymania do 6 miesięcy — <b>cofnięcie uprawnień na 5 lat</b>.</li>
-      <li>Przewóz <b>o dwie osoby</b> więcej niż miejsc w dowodzie rejestracyjnym to również zatrzymanie prawa jazdy.</li>
+      <li>Jazda mimo zatrzymanego prawa jazdy — <b>cofnięcie uprawnień na 5 lat</b>.</li>
+      <li>Przewóz <b>choćby jednej osoby</b> więcej, niż jest miejsc w dowodzie rejestracyjnym, to również zatrzymanie prawa jazdy na 3 miesiące.</li>
       <li>Wyjątek: przekroczenie prędkości w celu uchylenia bezpośredniego niebezpieczeństwa, na przykład ratowania życia — prawo jazdy zostaje przy kierowcy.</li>
       <li>Przy kontroli musisz mieć <b>pokwitowanie</b> zatrzymanego prawa jazdy lub dowodu rejestracyjnego, jeśli takie dostałeś, oraz zagraniczny dokument uprawniający do kierowania. Polskiego prawa jazdy i dowodu rejestracyjnego wozić nie musisz.</li>
       <li>Pojazd zarejestrowany za granicą: dokument dopuszczający do ruchu i potwierdzenie <b>OC</b>.</li>
@@ -852,7 +2503,7 @@
     </ul>
   </section>
 
-  <section>
+  <section id="hulajnogi">
     <h2>Hulajnogi i UTO <span class="tag">nowe przepisy</span></h2>
     <ul class="rules">
       <li>Maksymalnie <span class="num">20 km/h</span> na jezdni. Bez pasażera, bez siedzenia, bez holowania innej hulajnogi.</li>
@@ -863,7 +2514,7 @@
     </ul>
   </section>
 
-  <section>
+  <section id="slowniczek">
     <h2>Słowniczek <span class="tag">terminy z pytań</span></h2>
 
     <h3 style="margin-top:6px">Światła</h3>
@@ -974,9 +2625,40 @@
   <footer>
     <div>Źródło: <b>KATALOG dla kandydatów na kierowców, 07/2026</b> — oficjalna baza pytań Ministerstwa Infrastruktury. Uwzględniono wyłącznie pytania z kategorią B, łącznie 2299, w tym arkusz „W trakcie weryfikacji”.</div>
     <div>Wyjątek: sekcja „Zadanie nr 1 na placu” opisuje przebieg egzaminu praktycznego, a nie pytania — pochodzi z listy zadań stosowanej przez ośrodki egzaminacyjne.</div>
+    <div>Sekcje o pierwszeństwie, sygnałach, znakach, wyprzedzaniu, postoju, alkoholu i okresie próbnym pochodzą z ustawy <b>Prawo o ruchu drogowym</b>, ustawy <b>o kierujących pojazdami</b> (z reformą z 3 marca i 3 września 2026 r.) oraz <b>rozporządzenia w sprawie znaków i sygnałów drogowych</b> (Dz.U. 2019 poz. 2310 z późniejszymi zmianami, ostatnia z 2026 r.). Wzory znaków: Wikimedia Commons, domena publiczna.</div>
     <div>Ściąga nie zastępuje bazy pytań. 2046 pytań kat. B ma film albo zdjęcie i sprawdza konkretną sytuację na drodze — te trzeba przeklikać.</div>
   </footer>
 
 </div>
+
+<script>
+(function () {
+  var input = document.getElementById("sign-q");
+  var count = document.getElementById("sign-count");
+  if (!input) return;
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".sign"));
+  var groups = Array.prototype.slice.call(document.querySelectorAll(".signs"));
+  function norm(s) {
+    return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ł/g, "l").trim();
+  }
+  cards.forEach(function (c) { c._q = norm(c.getAttribute("data-q") + " " + c.textContent); });
+  function run() {
+    var q = norm(input.value);
+    var shown = 0;
+    cards.forEach(function (c) {
+      var hit = !q || c._q.indexOf(q) !== -1;
+      c.hidden = !hit;
+      if (hit) shown++;
+    });
+    groups.forEach(function (g) {
+      var any = g.querySelector(".sign:not([hidden])");
+      g.hidden = !any;
+      if (g.previousElementSibling && g.previousElementSibling.classList.contains("group")) g.previousElementSibling.hidden = !any;
+    });
+    count.textContent = q ? (shown ? "znaleziono: " + shown : "brak takiego znaku") : "";
+  }
+  input.addEventListener("input", run);
+})();
+</script>
 </body>
 </html>
